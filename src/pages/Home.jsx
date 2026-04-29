@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Header from "../components/Header";
 import ProgramCard from "../components/ProgramCard";
 import Footer from "../components/Footer";
@@ -9,31 +9,60 @@ import categoryIcons from "../constants/categoryIcons";
 import { usePrograms } from "../hooks/usePrograms";
 import { useScript } from "../hooks/useScript";
 import { useBusca } from "../hooks/useBusca";
+import { HiCheckCircle, HiXCircle } from "react-icons/hi2";
 
 function Home() {
-  document.title = "Winget Store";
+  useEffect(() => { document.title = "Winget Store"; }, []);
 
   const [categoriaAtiva, setCategoriaAtiva] = useState(programs[0].category);
-  const { selecionados, togglePrograma, toggleCategoria } = usePrograms();
+
+  // Opções do script — gerenciadas aqui e passadas para Header e Footer
+  const [opcoes, setOpcoes] = useState({
+    aceitarAcordos: false,
+    verificarErros: false,
+  });
+
+  const {
+    selecionados,
+    selecionadosSet,
+    togglePrograma,
+    toggleCategoria,
+    limparSelecao,
+    presets,
+    salvarPreset,
+    carregarPreset,
+    deletarPreset,
+  } = usePrograms();
+
   const { script, modalAberto, gerarScript, baixarScript, fecharModal } = useScript();
   const { busca, setBusca, buscaDebounced } = useBusca();
 
-  const categoriasFiltradas = useMemo(
-    () =>
-      programs
-        .map((categoria) => ({
-          ...categoria,
-          apps: categoria.apps.filter((app) =>
-            app.name.toLowerCase().includes(buscaDebounced.toLowerCase())
-          ),
-        }))
-        .filter((categoria) => categoria.apps.length > 0),
-    [buscaDebounced]
-  );
+  const categoriasFiltradas = useMemo(() => {
+    const termo = buscaDebounced.toLowerCase();
+    return programs
+      .map((categoria) => ({
+        ...categoria,
+        apps: categoria.apps.filter(
+          (app) =>
+            app.name.toLowerCase().includes(termo) ||
+            app.description.toLowerCase().includes(termo) ||
+            app.id.toLowerCase().includes(termo)
+        ),
+      }))
+      .filter((categoria) => categoria.apps.length > 0);
+  }, [buscaDebounced]);
 
   const categoriaVisivel = buscaDebounced
     ? categoriasFiltradas
     : categoriasFiltradas.filter((c) => c.category === categoriaAtiva);
+
+  const selecionadosPorCategoria = useMemo(() => {
+    const mapa = {};
+    programs.forEach((cat) => {
+      mapa[cat.category] = cat.apps.filter((app) => selecionadosSet.has(app.id)).length;
+    });
+    return mapa;
+  }, [selecionadosSet]);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white pb-24">
@@ -41,6 +70,8 @@ function Home() {
         busca={busca}
         onBusca={setBusca}
         totalSelecionados={selecionados.length}
+        opcoes={opcoes}
+        onOpcoes={setOpcoes}
       />
 
       <div className="max-w-7xl mx-auto px-8 py-8 flex gap-8">
@@ -48,17 +79,24 @@ function Home() {
           categorias={programs}
           categoriaAtiva={categoriaAtiva}
           onSelecionar={setCategoriaAtiva}
+          selecionadosPorCategoria={selecionadosPorCategoria}
+          categoriasFiltradas={buscaDebounced ? categoriasFiltradas : null}
+          presets={presets}
+          onCarregarPreset={carregarPreset}
+          onDeletarPreset={deletarPreset}
         />
 
         <main className="flex-1">
           {categoriaVisivel.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-gray-500">
               <p className="text-lg font-medium">Nenhum programa encontrado</p>
-              <p className="text-sm mt-1">Tente outro termo de busca</p>
+              <p className="text-sm mt-1">Tente buscar pelo nome, descrição ou ID</p>
             </div>
           ) : (
             categoriaVisivel.map((categoria) => {
               const Icon = categoryIcons[categoria.category];
+              const todosSelected = categoria.apps.every((app) => selecionadosSet.has(app.id));
+
               return (
                 <div key={categoria.category} className="mb-10">
                   <div className="flex items-center justify-between mb-4">
@@ -68,16 +106,17 @@ function Home() {
                     </h2>
                     <button
                       onClick={() => toggleCategoria(categoria)}
-                      className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
-                      aria-label={
-                        categoria.apps.every((app) => selecionados.includes(app.id))
-                          ? `Desmarcar todos de ${categoria.category}`
-                          : `Selecionar todos de ${categoria.category}`
-                      }
+                      className={`flex items-center gap-1.5 text-sm transition-colors ${
+                        todosSelected
+                          ? "text-red-400 hover:text-red-300"
+                          : "text-blue-400 hover:text-blue-300"
+                      }`}
                     >
-                      {categoria.apps.every((app) => selecionados.includes(app.id))
-                        ? "❌ Desmarcar todos"
-                        : "✅ Selecionar todos"}
+                      {todosSelected ? (
+                        <><HiXCircle className="w-4 h-4" /> Desmarcar todos</>
+                      ) : (
+                        <><HiCheckCircle className="w-4 h-4" /> Selecionar todos</>
+                      )}
                     </button>
                   </div>
 
@@ -90,7 +129,7 @@ function Home() {
                       <ProgramCard
                         key={app.id}
                         app={app}
-                        selecionado={selecionados.includes(app.id)}
+                        selecionado={selecionadosSet.has(app.id)}
                         onToggle={togglePrograma}
                       />
                     ))}
@@ -102,7 +141,13 @@ function Home() {
         </main>
       </div>
 
-      <Footer selecionados={selecionados} onGerar={() => gerarScript(selecionados)} />
+      <Footer
+        selecionados={selecionados}
+        onGerar={() => gerarScript(selecionados, opcoes)}
+        onLimpar={limparSelecao}
+        onSalvarPreset={salvarPreset}
+        opcoes={opcoes}
+      />
 
       {modalAberto && (
         <Modal

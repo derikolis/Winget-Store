@@ -13,17 +13,24 @@ function Modal({ script, onFechar, onBaixar }) {
     });
   }
 
+  // Fechar ao clicar no backdrop
+  function handleBackdropClick(e) {
+    if (e.target === e.currentTarget) onFechar();
+  }
+
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4"
+      className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4 py-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
+      onClick={handleBackdropClick}
     >
-      <div className="bg-gray-800 rounded-xl w-full max-w-2xl border border-gray-700">
+      {/* ✅ MELHORIA: max-h responsivo para não cortar em telas pequenas */}
+      <div className="bg-gray-800 rounded-xl w-full max-w-2xl border border-gray-700 flex flex-col max-h-[90vh]">
 
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 shrink-0">
           <h2
             id="modal-title"
             className="text-white font-bold text-lg flex items-center gap-2"
@@ -40,13 +47,14 @@ function Modal({ script, onFechar, onBaixar }) {
           </button>
         </div>
 
-        {/* Conteúdo */}
-        <div className="px-6 py-4">
+        {/* Conteúdo — scrollável */}
+        <div className="px-6 py-4 overflow-y-auto flex-1">
           <p className="text-gray-400 text-sm mb-3">
             Seu script personalizado está pronto! Baixe e execute como Administrador.
           </p>
+          {/* ✅ MELHORIA: max-h flexível baseado em viewport ao invés de fixo */}
           <pre
-            className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm overflow-auto max-h-64 font-mono"
+            className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm overflow-auto max-h-[40vh] font-mono leading-relaxed"
             aria-label="Conteúdo do script gerado"
           >
             {script}
@@ -54,7 +62,7 @@ function Modal({ script, onFechar, onBaixar }) {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700">
+        <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700 shrink-0">
           <button
             onClick={onFechar}
             className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors"
