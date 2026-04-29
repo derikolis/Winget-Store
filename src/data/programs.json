@@ -1,0 +1,160 @@
+[
+  {
+    "category": "Navegadores",
+    "icon": "🌐",
+    "apps": [
+      { "name": "Google Chrome", "id": "Google.Chrome", "description": "Navegador rápido do Google" },
+      { "name": "Mozilla Firefox", "id": "Mozilla.Firefox", "description": "Navegador open source" },
+      { "name": "Brave", "id": "Brave.Brave", "description": "Navegador focado em privacidade" },
+      { "name": "Opera", "id": "Opera.Opera", "description": "Navegador com VPN grátis" },
+      { "name": "Microsoft Edge", "id": "Microsoft.Edge", "description": "Navegador da Microsoft" },
+      { "name": "Vivaldi", "id": "VivaldiTechnologies.Vivaldi", "description": "Navegador altamente customizável" },
+      { "name": "Tor Browser", "id": "TorProject.TorBrowser", "description": "Navegador anônimo" }
+    ]
+  },
+  {
+    "category": "Desenvolvimento",
+    "icon": "💻",
+    "apps": [
+      { "name": "VSCode", "id": "Microsoft.VisualStudioCode", "description": "Editor de código da Microsoft" },
+      { "name": "Git", "id": "Git.Git", "description": "Controle de versão" },
+      { "name": "Python", "id": "Python.Python.3", "description": "Linguagem de programação" },
+      { "name": "NodeJS", "id": "OpenJS.NodeJS", "description": "Runtime JavaScript" },
+      { "name": "Postman", "id": "Postman.Postman", "description": "Testes de API" },
+      { "name": "Docker Desktop", "id": "Docker.DockerDesktop", "description": "Containers e virtualização" },
+      { "name": "GitHub Desktop", "id": "GitHub.GitHubDesktop", "description": "Interface gráfica para Git" },
+      { "name": "Android Studio", "id": "Google.AndroidStudio", "description": "IDE para desenvolvimento Android" },
+      { "name": "IntelliJ IDEA", "id": "JetBrains.IntelliJIDEA.Community", "description": "IDE Java da JetBrains" },
+      { "name": "PyCharm", "id": "JetBrains.PyCharm.Community", "description": "IDE Python da JetBrains" },
+      { "name": "Sublime Text", "id": "SublimeHQ.SublimeText.4", "description": "Editor de texto leve e rápido" },
+      { "name": "Notepad++", "id": "Notepad++.Notepad++", "description": "Editor de texto avançado" },
+      { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "description": "Terminal moderno da Microsoft" },
+      { "name": "PowerShell 7", "id": "Microsoft.PowerShell", "description": "Shell moderno da Microsoft" },
+      { "name": "Insomnia", "id": "Insomnia.Insomnia", "description": "Cliente REST e GraphQL" },
+      { "name": "HeidiSQL", "id": "HeidiSQL.HeidiSQL", "description": "Gerenciador de banco de dados" },
+      { "name": "DBeaver", "id": "dbeaver.dbeaver", "description": "Gerenciador universal de banco de dados" },
+      { "name": "FileZilla", "id": "TimKosse.FileZilla.Client", "description": "Cliente FTP gratuito" }
+    ]
+  },
+  {
+    "category": "Multimídia",
+    "icon": "🎵",
+    "apps": [
+      { "name": "VLC", "id": "VideoLAN.VLC", "description": "Player de vídeo universal" },
+      { "name": "Spotify", "id": "Spotify.Spotify", "description": "Streaming de música" },
+      { "name": "OBS Studio", "id": "OBSProject.OBSStudio", "description": "Gravação e streaming" },
+      { "name": "Audacity", "id": "Audacity.Audacity", "description": "Editor de áudio gratuito" },
+      { "name": "HandBrake", "id": "HandBrake.HandBrake", "description": "Conversor de vídeo" },
+      { "name": "iTunes", "id": "Apple.iTunes", "description": "Player e loja de música da Apple" },
+      { "name": "KMPlayer", "id": "KMP Media.KMPlayer", "description": "Player de vídeo avançado" },
+      { "name": "AIMP", "id": "AIMP.AIMP", "description": "Player de áudio leve" },
+      { "name": "Kdenlive", "id": "KDE.Kdenlive", "description": "Editor de vídeo gratuito" },
+      { "name": "DaVinci Resolve", "id": "Blackmagic.DaVinciResolve", "description": "Editor de vídeo profissional" },
+      { "name": "MusicBee", "id": "MusicBee.MusicBee", "description": "Gerenciador de música" }
+    ]
+  },
+  {
+    "category": "Utilitários",
+    "icon": "🔧",
+    "apps": [
+      { "name": "7-Zip", "id": "7zip.7zip", "description": "Compactador de arquivos" },
+      { "name": "WinRAR", "id": "RARLab.WinRAR", "description": "Compactador de arquivos popular" },
+      { "name": "CPU-Z", "id": "CPUID.CPU-Z", "description": "Informações do hardware" },
+      { "name": "GPU-Z", "id": "TechPowerUp.GPU-Z", "description": "Informações da placa de vídeo" },
+      { "name": "HWiNFO", "id": "REALiX.HWiNFO", "description": "Monitoramento de hardware" },
+      { "name": "TreeSize", "id": "JAMSoftware.TreeSize.Free", "description": "Análise de disco" },
+      { "name": "CrystalDiskInfo", "id": "CrystalDewWorld.CrystalDiskInfo", "description": "Saúde do HD/SSD" },
+      { "name": "CrystalDiskMark", "id": "CrystalDewWorld.CrystalDiskMark", "description": "Benchmark de disco" },
+      { "name": "Everything", "id": "voidtools.Everything", "description": "Busca rápida de arquivos" },
+      { "name": "PowerToys", "id": "Microsoft.PowerToys", "description": "Utilitários da Microsoft" },
+      { "name": "Speccy", "id": "Piriform.Speccy", "description": "Informações do sistema" },
+      { "name": "Rufus", "id": "Rufus.Rufus", "description": "Criador de pendrive bootável" },
+      { "name": "Etcher", "id": "Balena.Etcher", "description": "Gravador de imagens USB" },
+      { "name": "WizTree", "id": "AntibodySoftware.WizTree", "description": "Analisador de espaço em disco" },
+      { "name": "AutoHotkey", "id": "AutoHotkey.AutoHotkey", "description": "Automação de tarefas no Windows" },
+      { "name": "ShareX", "id": "ShareX.ShareX", "description": "Captura de tela avançada" }
+    ]
+  },
+  {
+    "category": "Comunicação",
+    "icon": "💬",
+    "apps": [
+      { "name": "Discord", "id": "Discord.Discord", "description": "Chat para comunidades" },
+      { "name": "Telegram", "id": "Telegram.TelegramDesktop", "description": "Mensageiro rápido e seguro" },
+      { "name": "WhatsApp", "id": "9NKSQGP7F2NH", "description": "Mensageiro do Meta" },
+      { "name": "Zoom", "id": "Zoom.Zoom", "description": "Videoconferências" },
+      { "name": "Microsoft Teams", "id": "Microsoft.Teams", "description": "Colaboração da Microsoft" },
+      { "name": "Slack", "id": "SlackTechnologies.Slack", "description": "Comunicação para equipes" },
+      { "name": "Skype", "id": "Microsoft.Skype", "description": "Chamadas e mensagens" },
+      { "name": "Signal", "id": "OpenWhisperSystems.Signal", "description": "Mensageiro com foco em privacidade" },
+      { "name": "Thunderbird", "id": "Mozilla.Thunderbird", "description": "Cliente de email gratuito" },
+      { "name": "Outlook", "id": "Microsoft.OutlookForWindows", "description": "Cliente de email da Microsoft" }
+    ]
+  },
+  {
+    "category": "Segurança",
+    "icon": "🔒",
+    "apps": [
+      { "name": "Malwarebytes", "id": "Malwarebytes.Malwarebytes", "description": "Antimalware" },
+      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "description": "Gerenciador de senhas" },
+      { "name": "ProtonVPN", "id": "ProtonTechnologies.ProtonVPN", "description": "VPN segura e gratuita" },
+      { "name": "KeePass", "id": "DominikReichl.KeePass", "description": "Gerenciador de senhas local" },
+      { "name": "VeraCrypt", "id": "IDRIX.VeraCrypt", "description": "Criptografia de arquivos" },
+      { "name": "AdwCleaner", "id": "Malwarebytes.AdwCleaner", "description": "Remove adware e PUPs" },
+      { "name": "Kaspersky Free", "id": "AO Kaspersky Lab.KasperskyFree", "description": "Antivírus gratuito" },
+      { "name": "OpenVPN", "id": "OpenVPNTechnologies.OpenVPN", "description": "Cliente VPN open source" }
+    ]
+  },
+  {
+    "category": "Jogos",
+    "icon": "🎮",
+    "apps": [
+      { "name": "Steam", "id": "Valve.Steam", "description": "Plataforma de jogos da Valve" },
+      { "name": "Epic Games", "id": "EpicGames.EpicGamesLauncher", "description": "Plataforma de jogos da Epic" },
+      { "name": "GOG Galaxy", "id": "GOG.Galaxy", "description": "Plataforma de jogos DRM-free" },
+      { "name": "EA App", "id": "ElectronicArts.EADesktop", "description": "Plataforma da EA Games" },
+      { "name": "Ubisoft Connect", "id": "Ubisoft.Connect", "description": "Plataforma da Ubisoft" },
+      { "name": "Battle.net", "id": "Blizzard.BattleNet", "description": "Plataforma da Blizzard" },
+      { "name": "Xbox App", "id": "Microsoft.GamingApp", "description": "Plataforma Xbox no Windows" },
+      { "name": "Playnite", "id": "Playnite.Playnite", "description": "Gerenciador de jogos universal" }
+    ]
+  },
+  {
+    "category": "Escritório",
+    "icon": "📄",
+    "apps": [
+      { "name": "LibreOffice", "id": "TheDocumentFoundation.LibreOffice", "description": "Suite office gratuita" },
+      { "name": "Adobe Acrobat Reader", "id": "Adobe.Acrobat.Reader.64-bit", "description": "Leitor de PDF da Adobe" },
+      { "name": "Foxit PDF Reader", "id": "Foxit.FoxitReader", "description": "Leitor de PDF leve" },
+      { "name": "Sumatra PDF", "id": "SumatraPDF.SumatraPDF", "description": "Leitor de PDF minimalista" },
+      { "name": "Notion", "id": "Notion.Notion", "description": "Workspace e anotações" },
+      { "name": "Obsidian", "id": "Obsidian.Obsidian", "description": "Notas em Markdown" },
+      { "name": "Trello", "id": "Atlassian.Trello", "description": "Gerenciamento de tarefas" },
+      { "name": "Drawio", "id": "JGraph.Draw", "description": "Criador de diagramas gratuito" }
+    ]
+  },
+  {
+    "category": "Design",
+    "icon": "🎨",
+    "apps": [
+      { "name": "GIMP", "id": "GIMP.GIMP", "description": "Editor de imagens gratuito" },
+      { "name": "Inkscape", "id": "Inkscape.Inkscape", "description": "Editor de vetores gratuito" },
+      { "name": "Figma", "id": "Figma.Figma", "description": "Design de interfaces" },
+      { "name": "Blender", "id": "BlenderFoundation.Blender", "description": "Modelagem 3D gratuita" },
+      { "name": "Paint.NET", "id": "dotPDN.PaintDotNet", "description": "Editor de imagens simples" },
+      { "name": "Krita", "id": "KDE.Krita", "description": "Pintura digital gratuita" },
+      { "name": "IrfanView", "id": "IrfanSkiljan.IrfanView", "description": "Visualizador de imagens rápido" }
+    ]
+  },
+  {
+    "category": "Armazenamento",
+    "icon": "☁️",
+    "apps": [
+      { "name": "Google Drive", "id": "Google.GoogleDrive", "description": "Armazenamento em nuvem do Google" },
+      { "name": "Dropbox", "id": "Dropbox.Dropbox", "description": "Armazenamento em nuvem" },
+      { "name": "OneDrive", "id": "Microsoft.OneDrive", "description": "Armazenamento em nuvem da Microsoft" },
+      { "name": "MEGA", "id": "Mega.MEGADesktop", "description": "Armazenamento em nuvem criptografado" },
+      { "name": "Nextcloud", "id": "Nextcloud.NextcloudDesktop", "description": "Nuvem privada open source" }
+    ]
+  }
+]
