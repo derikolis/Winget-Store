@@ -15,7 +15,10 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
   const temSelecao = selecionados.length > 0;
 
   useEffect(() => {
-    if (!temSelecao) setSalvarAberto(false);
+    if (!temSelecao) {
+      const t = setTimeout(() => setSalvarAberto(false), 0);
+      return () => clearTimeout(t);
+    }
   }, [temSelecao]);
 
   function handleSalvarPreset() {
@@ -68,22 +71,21 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
       )}
 
       <div
-        className="fixed bottom-0 left-0 right-0 border-t border-gray-700 px-8 py-4"
+        className="fixed bottom-0 left-0 right-0 border-t border-gray-700 px-4 sm:px-8 py-4"
         style={{ background: "rgba(17,24,39,.95)", backdropFilter: "blur(12px)" }}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 relative">
+        <div className="w-full flex items-center justify-between gap-4 relative">
 
           {/* Esquerda: status + ações */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="flex items-center gap-3 min-w-0">
               <div className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-300 ${
                 temSelecao ? "bg-blue-400 animate-pulse" : "bg-gray-600"
               }`} />
-              <div className="min-w-[200px]">
+              <div className="min-w-[180px]">
                 <span className="text-white font-bold text-sm">
                   {selecionados.length} programa(s) selecionado(s)
                 </span>
-                {/* ✅ MELHORIA: contador "X de Y programas" */}
                 <p className="text-gray-500 text-xs">
                   {temSelecao
                     ? `${selecionados.length} de ${totalApps} programas disponíveis`
@@ -92,7 +94,6 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
               </div>
             </div>
 
-            {/* Limpar + Salvar com fade */}
             <div className={`flex items-center gap-2 transition-all duration-300 ${
               temSelecao ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 pointer-events-none"
             }`}>
@@ -120,8 +121,8 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
             </div>
           </div>
 
-          {/* Centro — absolute para centralizar de verdade independente dos lados */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
+          {/* Centro */}
+          <div className="text-center hidden lg:flex absolute left-1/2 -translate-x-1/2">
             <p className="text-gray-600 text-xs flex items-center gap-2">
               <a
                 href="https://github.com/derikolis/Winget-Store"
@@ -136,7 +137,6 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
           </div>
 
           {/* Direita: Gerar Script */}
-          {/* ✅ MELHORIA: transição mais clara entre habilitado/desabilitado */}
           <button
             onClick={() => onGerar(opcoes)}
             disabled={!temSelecao}
@@ -146,7 +146,7 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
                 : "bg-gray-800 text-gray-600 cursor-not-allowed border border-gray-700 scale-95"
             }`}
           >
-            <BsLightningChargeFill className={`w-4 h-4 transition-colors ${temSelecao ? "text-white" : "text-gray-600"}`} />
+            <BsLightningChargeFill className="w-4 h-4" />
             Gerar Script
           </button>
 

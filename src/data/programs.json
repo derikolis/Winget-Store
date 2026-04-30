@@ -1,160 +1,1467 @@
 [
   {
     "category": "Navegadores",
-    "icon": "🌐",
     "apps": [
-      { "name": "Google Chrome", "id": "Google.Chrome", "description": "Navegador rápido do Google" },
-      { "name": "Mozilla Firefox", "id": "Mozilla.Firefox", "description": "Navegador open source" },
-      { "name": "Brave", "id": "Brave.Brave", "description": "Navegador focado em privacidade" },
-      { "name": "Opera", "id": "Opera.Opera", "description": "Navegador com VPN grátis" },
-      { "name": "Microsoft Edge", "id": "Microsoft.Edge", "description": "Navegador da Microsoft" },
-      { "name": "Vivaldi", "id": "VivaldiTechnologies.Vivaldi", "description": "Navegador altamente customizável" },
-      { "name": "Tor Browser", "id": "TorProject.TorBrowser", "description": "Navegador anônimo" }
+      {
+        "name": "Google Chrome",
+        "id": "Google.Chrome",
+        "description": "Navegador rápido do Google"
+      },
+      {
+        "name": "Mozilla Firefox",
+        "id": "Mozilla.Firefox",
+        "description": "Navegador open source"
+      },
+      {
+        "name": "Brave",
+        "id": "Brave.Brave",
+        "description": "Navegador focado em privacidade"
+      },
+      {
+        "name": "Opera",
+        "id": "Opera.Opera",
+        "description": "Navegador com VPN grátis"
+      },
+      {
+        "name": "Opera GX",
+        "id": "Opera.OperaGX",
+        "description": "Navegador gamer da Opera"
+      },
+      {
+        "name": "Microsoft Edge",
+        "id": "Microsoft.Edge",
+        "description": "Navegador da Microsoft"
+      },
+      {
+        "name": "Vivaldi",
+        "id": "VivaldiTechnologies.Vivaldi",
+        "description": "Navegador altamente customizável"
+      },
+      {
+        "name": "Tor Browser",
+        "id": "TorProject.TorBrowser",
+        "description": "Navegador anônimo"
+      },
+      {
+        "name": "Waterfox",
+        "id": "Waterfox.Waterfox",
+        "description": "Firefox alternativo focado em privacidade"
+      },
+      {
+        "name": "LibreWolf",
+        "id": "LibreWolf.LibreWolf",
+        "description": "Firefox hardened para privacidade"
+      },
+      {
+        "name": "Min Browser",
+        "id": "minbrowser.min",
+        "description": "Navegador minimalista e leve"
+      }
     ]
   },
   {
     "category": "Desenvolvimento",
-    "icon": "💻",
     "apps": [
-      { "name": "VSCode", "id": "Microsoft.VisualStudioCode", "description": "Editor de código da Microsoft" },
-      { "name": "Git", "id": "Git.Git", "description": "Controle de versão" },
-      { "name": "Python", "id": "Python.Python.3", "description": "Linguagem de programação" },
-      { "name": "NodeJS", "id": "OpenJS.NodeJS", "description": "Runtime JavaScript" },
-      { "name": "Postman", "id": "Postman.Postman", "description": "Testes de API" },
-      { "name": "Docker Desktop", "id": "Docker.DockerDesktop", "description": "Containers e virtualização" },
-      { "name": "GitHub Desktop", "id": "GitHub.GitHubDesktop", "description": "Interface gráfica para Git" },
-      { "name": "Android Studio", "id": "Google.AndroidStudio", "description": "IDE para desenvolvimento Android" },
-      { "name": "IntelliJ IDEA", "id": "JetBrains.IntelliJIDEA.Community", "description": "IDE Java da JetBrains" },
-      { "name": "PyCharm", "id": "JetBrains.PyCharm.Community", "description": "IDE Python da JetBrains" },
-      { "name": "Sublime Text", "id": "SublimeHQ.SublimeText.4", "description": "Editor de texto leve e rápido" },
-      { "name": "Notepad++", "id": "Notepad++.Notepad++", "description": "Editor de texto avançado" },
-      { "name": "Windows Terminal", "id": "Microsoft.WindowsTerminal", "description": "Terminal moderno da Microsoft" },
-      { "name": "PowerShell 7", "id": "Microsoft.PowerShell", "description": "Shell moderno da Microsoft" },
-      { "name": "Insomnia", "id": "Insomnia.Insomnia", "description": "Cliente REST e GraphQL" },
-      { "name": "HeidiSQL", "id": "HeidiSQL.HeidiSQL", "description": "Gerenciador de banco de dados" },
-      { "name": "DBeaver", "id": "dbeaver.dbeaver", "description": "Gerenciador universal de banco de dados" },
-      { "name": "FileZilla", "id": "TimKosse.FileZilla.Client", "description": "Cliente FTP gratuito" }
+      {
+        "name": "VSCode",
+        "id": "Microsoft.VisualStudioCode",
+        "description": "Editor de código da Microsoft"
+      },
+      {
+        "name": "Visual Studio 2022",
+        "id": "Microsoft.VisualStudio.2022.Community",
+        "description": "IDE completa da Microsoft"
+      },
+      {
+        "name": "Cursor",
+        "id": "Anysphere.Cursor",
+        "description": "Editor de código com IA integrada"
+      },
+      {
+        "name": "Neovim",
+        "id": "Neovim.Neovim",
+        "description": "Editor de texto baseado em Vim"
+      },
+      {
+        "name": "Vim",
+        "id": "vim.vim",
+        "description": "Editor de texto clássico"
+      },
+      {
+        "name": "Sublime Text",
+        "id": "SublimeHQ.SublimeText.4",
+        "description": "Editor de texto leve e rápido"
+      },
+      {
+        "name": "Notepad++",
+        "id": "Notepad++.Notepad++",
+        "description": "Editor de texto avançado"
+      },
+      {
+        "name": "DevToys",
+        "id": "DevToys-app.DevToys",
+        "description": "Utilitários offline para desenvolvedores"
+      },
+      {
+        "name": "Git",
+        "id": "Git.Git",
+        "description": "Controle de versão"
+      },
+      {
+        "name": "GitHub Desktop",
+        "id": "GitHub.GitHubDesktop",
+        "description": "Interface gráfica para Git"
+      },
+      {
+        "name": "GitKraken",
+        "id": "Axosoft.GitKraken",
+        "description": "Cliente Git visual avançado"
+      },
+      {
+        "name": "Python 3",
+        "id": "Python.Python.3",
+        "description": "Linguagem de programação Python 3"
+      },
+      {
+        "name": "Python 3.11",
+        "id": "Python.Python.3.11",
+        "description": "Python versão 3.11"
+      },
+      {
+        "name": "Python 3.10",
+        "id": "Python.Python.3.10",
+        "description": "Python versão 3.10"
+      },
+      {
+        "name": "NodeJS LTS",
+        "id": "OpenJS.NodeJS.LTS",
+        "description": "Runtime JavaScript LTS"
+      },
+      {
+        "name": "NodeJS",
+        "id": "OpenJS.NodeJS",
+        "description": "Runtime JavaScript atual"
+      },
+      {
+        "name": "Bun",
+        "id": "Oven-sh.Bun",
+        "description": "Runtime JavaScript ultrarrápido"
+      },
+      {
+        "name": "PHP",
+        "id": "PHP.PHP",
+        "description": "Linguagem de programação PHP"
+      },
+      {
+        "name": "Composer",
+        "id": "Composer.Composer",
+        "description": "Gerenciador de dependências PHP"
+      },
+      {
+        "name": "Go",
+        "id": "GoLang.Go",
+        "description": "Linguagem de programação Go"
+      },
+      {
+        "name": "Rust",
+        "id": "Rustlang.Rust.MSVC",
+        "description": "Linguagem de programação Rust"
+      },
+      {
+        "name": "Ruby",
+        "id": "RubyInstallerTeam.Ruby",
+        "description": "Linguagem de programação Ruby"
+      },
+      {
+        "name": "Java JDK 21",
+        "id": "EclipseAdoptium.Temurin.21.JDK",
+        "description": "Java LTS mais recente"
+      },
+      {
+        "name": "Java JDK 17",
+        "id": "EclipseAdoptium.Temurin.17.JDK",
+        "description": "Java LTS amplamente usado"
+      },
+      {
+        "name": "Java JDK 11",
+        "id": "EclipseAdoptium.Temurin.11.JDK",
+        "description": "Java JDK 11 LTS"
+      },
+      {
+        "name": "Java JRE 8",
+        "id": "EclipseAdoptium.Temurin.8.JRE",
+        "description": "Java Runtime 8 para compatibilidade"
+      },
+      {
+        "name": "Flutter",
+        "id": "Google.FlutterSDK",
+        "description": "SDK para apps multiplataforma"
+      },
+      {
+        "name": "CMake",
+        "id": "Kitware.CMake",
+        "description": "Sistema de build multiplataforma"
+      },
+      {
+        "name": "Vagrant",
+        "id": "Hashicorp.Vagrant",
+        "description": "Ambientes de desenvolvimento virtualizados"
+      },
+      {
+        "name": "XAMPP",
+        "id": "ApacheFriends.XAMPP",
+        "description": "Ambiente local PHP/MySQL/Apache"
+      },
+      {
+        "name": "Laragon",
+        "id": "leokhoa.Laragon",
+        "description": "Ambiente local PHP moderno e leve"
+      },
+      {
+        "name": "Warp Terminal",
+        "id": "Warp.Warp",
+        "description": "Terminal moderno com IA integrada"
+      },
+      {
+        "name": "Tabby",
+        "id": "Eugeny.Tabby",
+        "description": "Terminal moderno e configurável"
+      },
+      {
+        "name": "WezTerm",
+        "id": "wez.wezterm",
+        "description": "Terminal acelerado por GPU"
+      },
+      {
+        "name": "Windows Terminal",
+        "id": "Microsoft.WindowsTerminal",
+        "description": "Terminal moderno da Microsoft"
+      },
+      {
+        "name": "PowerShell 7",
+        "id": "Microsoft.PowerShell",
+        "description": "Shell moderno da Microsoft"
+      },
+      {
+        "name": "Postman",
+        "id": "Postman.Postman",
+        "description": "Testes de API REST"
+      },
+      {
+        "name": "Bruno",
+        "id": "Bruno.Bruno",
+        "description": "Cliente de API open source offline"
+      },
+      {
+        "name": "Insomnia",
+        "id": "Insomnia.Insomnia",
+        "description": "Cliente REST e GraphQL"
+      },
+      {
+        "name": "Docker Desktop",
+        "id": "Docker.DockerDesktop",
+        "description": "Containers e virtualização"
+      },
+      {
+        "name": "Rancher Desktop",
+        "id": "SUSE.RancherDesktop",
+        "description": "Alternativa open source ao Docker Desktop"
+      },
+      {
+        "name": "Android Studio",
+        "id": "Google.AndroidStudio",
+        "description": "IDE para desenvolvimento Android"
+      },
+      {
+        "name": "IntelliJ IDEA",
+        "id": "JetBrains.IntelliJIDEA.Community",
+        "description": "IDE Java da JetBrains"
+      },
+      {
+        "name": "PyCharm",
+        "id": "JetBrains.PyCharm.Community",
+        "description": "IDE Python da JetBrains"
+      },
+      {
+        "name": "WebStorm",
+        "id": "JetBrains.WebStorm",
+        "description": "IDE JavaScript da JetBrains"
+      },
+      {
+        "name": "Rider",
+        "id": "JetBrains.Rider",
+        "description": "IDE .NET da JetBrains"
+      },
+      {
+        "name": "HeidiSQL",
+        "id": "HeidiSQL.HeidiSQL",
+        "description": "Gerenciador de banco de dados"
+      },
+      {
+        "name": "DBeaver",
+        "id": "dbeaver.dbeaver",
+        "description": "Gerenciador universal de banco de dados"
+      },
+      {
+        "name": "TablePlus",
+        "id": "TablePlus.TablePlus",
+        "description": "Gerenciador de banco moderno"
+      },
+      {
+        "name": "MySQL Workbench",
+        "id": "Oracle.MySQLWorkbench",
+        "description": "IDE visual para MySQL"
+      },
+      {
+        "name": "MongoDB Compass",
+        "id": "MongoDB.Compass.Full",
+        "description": "GUI para MongoDB"
+      },
+      {
+        "name": "Redis Desktop Manager",
+        "id": "RedisDesktopManager.RedisDesktopManager",
+        "description": "GUI para Redis"
+      },
+      {
+        "name": "WinMerge",
+        "id": "WinMerge.WinMerge",
+        "description": "Comparação e merge de arquivos"
+      },
+      {
+        "name": "FileZilla",
+        "id": "TimKosse.FileZilla.Client",
+        "description": "Cliente FTP gratuito"
+      },
+      {
+        "name": "WinSCP",
+        "id": "WinSCP.WinSCP",
+        "description": "Cliente SFTP/FTP seguro"
+      },
+      {
+        "name": ".NET 8 Runtime",
+        "id": "Microsoft.DotNet.Runtime.8",
+        "description": "Runtime .NET 8 da Microsoft"
+      },
+      {
+        "name": ".NET 9 Runtime",
+        "id": "Microsoft.DotNet.Runtime.9",
+        "description": "Runtime .NET 9 da Microsoft"
+      },
+      {
+        "name": ".NET Desktop 8",
+        "id": "Microsoft.DotNet.DesktopRuntime.8",
+        "description": "Runtime .NET Desktop 8"
+      },
+      {
+        "name": ".NET Desktop 9",
+        "id": "Microsoft.DotNet.DesktopRuntime.9",
+        "description": "Runtime .NET Desktop 9"
+      },
+      {
+        "name": "Visual C++ 2015-2022 x64",
+        "id": "Microsoft.VCRedist.2015+.x64",
+        "description": "Redistribuível Visual C++ 64-bit"
+      },
+      {
+        "name": "Visual C++ 2015-2022 x86",
+        "id": "Microsoft.VCRedist.2015+.x86",
+        "description": "Redistribuível Visual C++ 32-bit"
+      },
+      {
+        "name": "Visual C++ 2013",
+        "id": "Microsoft.VCRedist.2013.x64",
+        "description": "Redistribuível Visual C++ 2013"
+      },
+      {
+        "name": "DirectX",
+        "id": "Microsoft.DirectX",
+        "description": "Runtime DirectX da Microsoft"
+      },
+      {
+        "name": "WebView2 Runtime",
+        "id": "Microsoft.EdgeWebView2Runtime",
+        "description": "Runtime WebView2 para apps modernos"
+      },
+      {
+        "name": "OpenJDK 21",
+        "id": "Microsoft.OpenJDK.21",
+        "description": "OpenJDK 21 da Microsoft"
+      },
+      {
+        "name": "OpenJDK 17",
+        "id": "Microsoft.OpenJDK.17",
+        "description": "OpenJDK 17 da Microsoft"
+      },
+      {
+        "name": "OpenJDK 11",
+        "id": "Microsoft.OpenJDK.11",
+        "description": "OpenJDK 11 da Microsoft"
+      }
     ]
   },
   {
     "category": "Multimídia",
-    "icon": "🎵",
     "apps": [
-      { "name": "VLC", "id": "VideoLAN.VLC", "description": "Player de vídeo universal" },
-      { "name": "Spotify", "id": "Spotify.Spotify", "description": "Streaming de música" },
-      { "name": "OBS Studio", "id": "OBSProject.OBSStudio", "description": "Gravação e streaming" },
-      { "name": "Audacity", "id": "Audacity.Audacity", "description": "Editor de áudio gratuito" },
-      { "name": "HandBrake", "id": "HandBrake.HandBrake", "description": "Conversor de vídeo" },
-      { "name": "iTunes", "id": "Apple.iTunes", "description": "Player e loja de música da Apple" },
-      { "name": "KMPlayer", "id": "KMP Media.KMPlayer", "description": "Player de vídeo avançado" },
-      { "name": "AIMP", "id": "AIMP.AIMP", "description": "Player de áudio leve" },
-      { "name": "Kdenlive", "id": "KDE.Kdenlive", "description": "Editor de vídeo gratuito" },
-      { "name": "DaVinci Resolve", "id": "Blackmagic.DaVinciResolve", "description": "Editor de vídeo profissional" },
-      { "name": "MusicBee", "id": "MusicBee.MusicBee", "description": "Gerenciador de música" }
-    ]
-  },
-  {
-    "category": "Utilitários",
-    "icon": "🔧",
-    "apps": [
-      { "name": "7-Zip", "id": "7zip.7zip", "description": "Compactador de arquivos" },
-      { "name": "WinRAR", "id": "RARLab.WinRAR", "description": "Compactador de arquivos popular" },
-      { "name": "CPU-Z", "id": "CPUID.CPU-Z", "description": "Informações do hardware" },
-      { "name": "GPU-Z", "id": "TechPowerUp.GPU-Z", "description": "Informações da placa de vídeo" },
-      { "name": "HWiNFO", "id": "REALiX.HWiNFO", "description": "Monitoramento de hardware" },
-      { "name": "TreeSize", "id": "JAMSoftware.TreeSize.Free", "description": "Análise de disco" },
-      { "name": "CrystalDiskInfo", "id": "CrystalDewWorld.CrystalDiskInfo", "description": "Saúde do HD/SSD" },
-      { "name": "CrystalDiskMark", "id": "CrystalDewWorld.CrystalDiskMark", "description": "Benchmark de disco" },
-      { "name": "Everything", "id": "voidtools.Everything", "description": "Busca rápida de arquivos" },
-      { "name": "PowerToys", "id": "Microsoft.PowerToys", "description": "Utilitários da Microsoft" },
-      { "name": "Speccy", "id": "Piriform.Speccy", "description": "Informações do sistema" },
-      { "name": "Rufus", "id": "Rufus.Rufus", "description": "Criador de pendrive bootável" },
-      { "name": "Etcher", "id": "Balena.Etcher", "description": "Gravador de imagens USB" },
-      { "name": "WizTree", "id": "AntibodySoftware.WizTree", "description": "Analisador de espaço em disco" },
-      { "name": "AutoHotkey", "id": "AutoHotkey.AutoHotkey", "description": "Automação de tarefas no Windows" },
-      { "name": "ShareX", "id": "ShareX.ShareX", "description": "Captura de tela avançada" }
-    ]
-  },
-  {
-    "category": "Comunicação",
-    "icon": "💬",
-    "apps": [
-      { "name": "Discord", "id": "Discord.Discord", "description": "Chat para comunidades" },
-      { "name": "Telegram", "id": "Telegram.TelegramDesktop", "description": "Mensageiro rápido e seguro" },
-      { "name": "WhatsApp", "id": "9NKSQGP7F2NH", "description": "Mensageiro do Meta" },
-      { "name": "Zoom", "id": "Zoom.Zoom", "description": "Videoconferências" },
-      { "name": "Microsoft Teams", "id": "Microsoft.Teams", "description": "Colaboração da Microsoft" },
-      { "name": "Slack", "id": "SlackTechnologies.Slack", "description": "Comunicação para equipes" },
-      { "name": "Skype", "id": "Microsoft.Skype", "description": "Chamadas e mensagens" },
-      { "name": "Signal", "id": "OpenWhisperSystems.Signal", "description": "Mensageiro com foco em privacidade" },
-      { "name": "Thunderbird", "id": "Mozilla.Thunderbird", "description": "Cliente de email gratuito" },
-      { "name": "Outlook", "id": "Microsoft.OutlookForWindows", "description": "Cliente de email da Microsoft" }
-    ]
-  },
-  {
-    "category": "Segurança",
-    "icon": "🔒",
-    "apps": [
-      { "name": "Malwarebytes", "id": "Malwarebytes.Malwarebytes", "description": "Antimalware" },
-      { "name": "Bitwarden", "id": "Bitwarden.Bitwarden", "description": "Gerenciador de senhas" },
-      { "name": "ProtonVPN", "id": "ProtonTechnologies.ProtonVPN", "description": "VPN segura e gratuita" },
-      { "name": "KeePass", "id": "DominikReichl.KeePass", "description": "Gerenciador de senhas local" },
-      { "name": "VeraCrypt", "id": "IDRIX.VeraCrypt", "description": "Criptografia de arquivos" },
-      { "name": "AdwCleaner", "id": "Malwarebytes.AdwCleaner", "description": "Remove adware e PUPs" },
-      { "name": "Kaspersky Free", "id": "AO Kaspersky Lab.KasperskyFree", "description": "Antivírus gratuito" },
-      { "name": "OpenVPN", "id": "OpenVPNTechnologies.OpenVPN", "description": "Cliente VPN open source" }
-    ]
-  },
-  {
-    "category": "Jogos",
-    "icon": "🎮",
-    "apps": [
-      { "name": "Steam", "id": "Valve.Steam", "description": "Plataforma de jogos da Valve" },
-      { "name": "Epic Games", "id": "EpicGames.EpicGamesLauncher", "description": "Plataforma de jogos da Epic" },
-      { "name": "GOG Galaxy", "id": "GOG.Galaxy", "description": "Plataforma de jogos DRM-free" },
-      { "name": "EA App", "id": "ElectronicArts.EADesktop", "description": "Plataforma da EA Games" },
-      { "name": "Ubisoft Connect", "id": "Ubisoft.Connect", "description": "Plataforma da Ubisoft" },
-      { "name": "Battle.net", "id": "Blizzard.BattleNet", "description": "Plataforma da Blizzard" },
-      { "name": "Xbox App", "id": "Microsoft.GamingApp", "description": "Plataforma Xbox no Windows" },
-      { "name": "Playnite", "id": "Playnite.Playnite", "description": "Gerenciador de jogos universal" }
-    ]
-  },
-  {
-    "category": "Escritório",
-    "icon": "📄",
-    "apps": [
-      { "name": "LibreOffice", "id": "TheDocumentFoundation.LibreOffice", "description": "Suite office gratuita" },
-      { "name": "Adobe Acrobat Reader", "id": "Adobe.Acrobat.Reader.64-bit", "description": "Leitor de PDF da Adobe" },
-      { "name": "Foxit PDF Reader", "id": "Foxit.FoxitReader", "description": "Leitor de PDF leve" },
-      { "name": "Sumatra PDF", "id": "SumatraPDF.SumatraPDF", "description": "Leitor de PDF minimalista" },
-      { "name": "Notion", "id": "Notion.Notion", "description": "Workspace e anotações" },
-      { "name": "Obsidian", "id": "Obsidian.Obsidian", "description": "Notas em Markdown" },
-      { "name": "Trello", "id": "Atlassian.Trello", "description": "Gerenciamento de tarefas" },
-      { "name": "Drawio", "id": "JGraph.Draw", "description": "Criador de diagramas gratuito" }
+      {
+        "name": "VLC",
+        "id": "VideoLAN.VLC",
+        "description": "Player de vídeo universal"
+      },
+      {
+        "name": "Spotify",
+        "id": "Spotify.Spotify",
+        "description": "Streaming de música"
+      },
+      {
+        "name": "OBS Studio",
+        "id": "OBSProject.OBSStudio",
+        "description": "Gravação e streaming"
+      },
+      {
+        "name": "Audacity",
+        "id": "Audacity.Audacity",
+        "description": "Editor de áudio gratuito"
+      },
+      {
+        "name": "HandBrake",
+        "id": "HandBrake.HandBrake",
+        "description": "Conversor de vídeo"
+      },
+      {
+        "name": "iTunes",
+        "id": "Apple.iTunes",
+        "description": "Player e loja de música da Apple"
+      },
+      {
+        "name": "KMPlayer",
+        "id": "KMP Media.KMPlayer",
+        "description": "Player de vídeo avançado"
+      },
+      {
+        "name": "AIMP",
+        "id": "AIMP.AIMP",
+        "description": "Player de áudio leve"
+      },
+      {
+        "name": "Kdenlive",
+        "id": "KDE.Kdenlive",
+        "description": "Editor de vídeo gratuito"
+      },
+      {
+        "name": "DaVinci Resolve",
+        "id": "Blackmagic.DaVinciResolve",
+        "description": "Editor de vídeo profissional"
+      },
+      {
+        "name": "MusicBee",
+        "id": "MusicBee.MusicBee",
+        "description": "Gerenciador de música"
+      },
+      {
+        "name": "foobar2000",
+        "id": "PeterPawlowski.foobar2000",
+        "description": "Player de áudio avançado"
+      },
+      {
+        "name": "Mp3tag",
+        "id": "Mp3tag.Mp3tag",
+        "description": "Editor de tags de áudio"
+      },
+      {
+        "name": "MKVToolNix",
+        "id": "MKVToolNix.MKVToolNix",
+        "description": "Editor de arquivos MKV"
+      },
+      {
+        "name": "FFmpeg",
+        "id": "Gyan.FFmpeg",
+        "description": "Conversor e processador de mídia via linha de comando"
+      },
+      {
+        "name": "MediaInfo",
+        "id": "MediaArea.MediaInfo",
+        "description": "Informações de arquivos de mídia"
+      },
+      {
+        "name": "MPC-HC",
+        "id": "clsid2.mpc-hc",
+        "description": "Media Player Classic fork"
+      },
+      {
+        "name": "Plex",
+        "id": "Plex.Plexamp",
+        "description": "Player do Plex Media Server"
+      },
+      {
+        "name": "Jellyfin Media Player",
+        "id": "Jellyfin.JellyfinMediaPlayer",
+        "description": "Player open source do Jellyfin"
+      },
+      {
+        "name": "Winamp",
+        "id": "Winamp.Winamp",
+        "description": "Player de música clássico"
+      },
+      {
+        "name": "Clementine",
+        "id": "Clementine-Player.Clementine",
+        "description": "Player de música multiplataforma"
+      },
+      {
+        "name": "Stremio",
+        "id": "Stremio.Stremio",
+        "description": "Hub de streaming de vídeo"
+      },
+      {
+        "name": "K-Lite Codec Pack",
+        "id": "CodecGuide.K-LiteCodecPack.Full",
+        "description": "Pacote de codecs para Windows"
+      },
+      {
+        "name": "Voicemeeter",
+        "id": "VB-Audio.Voicemeeter",
+        "description": "Mixer de áudio virtual"
+      },
+      {
+        "name": "Voicemeeter Banana",
+        "id": "VB-Audio.Voicemeeter.Banana",
+        "description": "Mixer de áudio virtual avançado"
+      },
+      {
+        "name": "Equalizer APO",
+        "id": "EqualizerAPO.EqualizerAPO",
+        "description": "Equalizador de áudio para Windows"
+      },
+      {
+        "name": "Bandicam",
+        "id": "Bandicam.Bandicam",
+        "description": "Gravador de tela e jogos"
+      },
+      {
+        "name": "ScreenToGif",
+        "id": "NickeManarin.ScreenToGif",
+        "description": "Gravador de GIF animado"
+      }
     ]
   },
   {
     "category": "Design",
-    "icon": "🎨",
     "apps": [
-      { "name": "GIMP", "id": "GIMP.GIMP", "description": "Editor de imagens gratuito" },
-      { "name": "Inkscape", "id": "Inkscape.Inkscape", "description": "Editor de vetores gratuito" },
-      { "name": "Figma", "id": "Figma.Figma", "description": "Design de interfaces" },
-      { "name": "Blender", "id": "BlenderFoundation.Blender", "description": "Modelagem 3D gratuita" },
-      { "name": "Paint.NET", "id": "dotPDN.PaintDotNet", "description": "Editor de imagens simples" },
-      { "name": "Krita", "id": "KDE.Krita", "description": "Pintura digital gratuita" },
-      { "name": "IrfanView", "id": "IrfanSkiljan.IrfanView", "description": "Visualizador de imagens rápido" }
+      {
+        "name": "GIMP",
+        "id": "GIMP.GIMP",
+        "description": "Editor de imagens gratuito"
+      },
+      {
+        "name": "Inkscape",
+        "id": "Inkscape.Inkscape",
+        "description": "Editor de vetores gratuito"
+      },
+      {
+        "name": "Figma",
+        "id": "Figma.Figma",
+        "description": "Design de interfaces"
+      },
+      {
+        "name": "Blender",
+        "id": "BlenderFoundation.Blender",
+        "description": "Modelagem 3D gratuita"
+      },
+      {
+        "name": "Paint.NET",
+        "id": "dotPDN.PaintDotNet",
+        "description": "Editor de imagens simples"
+      },
+      {
+        "name": "Krita",
+        "id": "KDE.Krita",
+        "description": "Pintura digital gratuita"
+      },
+      {
+        "name": "IrfanView",
+        "id": "IrfanSkiljan.IrfanView",
+        "description": "Visualizador de imagens rápido"
+      },
+      {
+        "name": "Adobe Creative Cloud",
+        "id": "Adobe.CreativeCloud",
+        "description": "Suite criativa da Adobe"
+      },
+      {
+        "name": "Canva",
+        "id": "Canva.Canva",
+        "description": "Design gráfico simplificado"
+      },
+      {
+        "name": "XnView",
+        "id": "XnSoft.XnViewMP",
+        "description": "Visualizador e conversor de imagens"
+      },
+      {
+        "name": "FastStone Viewer",
+        "id": "FastStone.Viewer",
+        "description": "Visualizador de imagens leve"
+      },
+      {
+        "name": "Penpot",
+        "id": "Penpot.Penpot",
+        "description": "Design open source alternativo ao Figma"
+      },
+      {
+        "name": "Lossless Cut",
+        "id": "mifi.lossless-cut",
+        "description": "Cortador de vídeo sem recodificação"
+      }
     ]
   },
   {
-    "category": "Armazenamento",
-    "icon": "☁️",
+    "category": "Escritório",
     "apps": [
-      { "name": "Google Drive", "id": "Google.GoogleDrive", "description": "Armazenamento em nuvem do Google" },
-      { "name": "Dropbox", "id": "Dropbox.Dropbox", "description": "Armazenamento em nuvem" },
-      { "name": "OneDrive", "id": "Microsoft.OneDrive", "description": "Armazenamento em nuvem da Microsoft" },
-      { "name": "MEGA", "id": "Mega.MEGADesktop", "description": "Armazenamento em nuvem criptografado" },
-      { "name": "Nextcloud", "id": "Nextcloud.NextcloudDesktop", "description": "Nuvem privada open source" }
+      {
+        "name": "LibreOffice",
+        "id": "TheDocumentFoundation.LibreOffice",
+        "description": "Suite office gratuita"
+      },
+      {
+        "name": "FreeOffice",
+        "id": "SoftMaker.FreeOffice",
+        "description": "Suite office compatível com MS Office"
+      },
+      {
+        "name": "Adobe Acrobat Reader",
+        "id": "Adobe.Acrobat.Reader.64-bit",
+        "description": "Leitor de PDF da Adobe"
+      },
+      {
+        "name": "Foxit PDF Reader",
+        "id": "Foxit.FoxitReader",
+        "description": "Leitor de PDF leve"
+      },
+      {
+        "name": "Sumatra PDF",
+        "id": "SumatraPDF.SumatraPDF",
+        "description": "Leitor de PDF minimalista"
+      },
+      {
+        "name": "PDF24 Creator",
+        "id": "geek-software.PDF24Creator",
+        "description": "Suite PDF completa e gratuita"
+      },
+      {
+        "name": "PDFCreator",
+        "id": "pdfforge.PDFCreator",
+        "description": "Criador de PDF gratuito"
+      },
+      {
+        "name": "Notion",
+        "id": "Notion.Notion",
+        "description": "Workspace e anotações"
+      },
+      {
+        "name": "Obsidian",
+        "id": "Obsidian.Obsidian",
+        "description": "Notas em Markdown"
+      },
+      {
+        "name": "Evernote",
+        "id": "Evernote.Evernote",
+        "description": "Anotações e organização"
+      },
+      {
+        "name": "Microsoft OneNote",
+        "id": "Microsoft.OneNote",
+        "description": "Caderno digital da Microsoft"
+      },
+      {
+        "name": "Microsoft To Do",
+        "id": "Microsoft.Todo",
+        "description": "Gerenciador de tarefas da Microsoft"
+      },
+      {
+        "name": "TickTick",
+        "id": "Appest.TickTick",
+        "description": "Gerenciador de tarefas e produtividade"
+      },
+      {
+        "name": "Trello",
+        "id": "Atlassian.Trello",
+        "description": "Gerenciamento de tarefas Kanban"
+      },
+      {
+        "name": "Draw.io",
+        "id": "JGraph.Draw",
+        "description": "Criador de diagramas gratuito"
+      },
+      {
+        "name": "Typora",
+        "id": "Typora.Typora",
+        "description": "Editor Markdown elegante"
+      },
+      {
+        "name": "Calibre",
+        "id": "calibre.calibre",
+        "description": "Gerenciador de ebooks"
+      }
+    ]
+  },
+  {
+    "category": "Comunicação",
+    "apps": [
+      {
+        "name": "Discord",
+        "id": "Discord.Discord",
+        "description": "Chat para comunidades"
+      },
+      {
+        "name": "Telegram",
+        "id": "Telegram.TelegramDesktop",
+        "description": "Mensageiro rápido e seguro"
+      },
+      {
+        "name": "WhatsApp",
+        "id": "9NKSQGP7F2NH",
+        "description": "Mensageiro do Meta"
+      },
+      {
+        "name": "Signal",
+        "id": "OpenWhisperSystems.Signal",
+        "description": "Mensageiro com foco em privacidade"
+      },
+      {
+        "name": "Viber",
+        "id": "Viber.Viber",
+        "description": "Mensageiro e chamadas gratuitas"
+      },
+      {
+        "name": "Zoom",
+        "id": "Zoom.Zoom",
+        "description": "Videoconferências"
+      },
+      {
+        "name": "Microsoft Teams",
+        "id": "Microsoft.Teams",
+        "description": "Colaboração da Microsoft"
+      },
+      {
+        "name": "Slack",
+        "id": "SlackTechnologies.Slack",
+        "description": "Comunicação para equipes"
+      },
+      {
+        "name": "Skype",
+        "id": "Microsoft.Skype",
+        "description": "Chamadas e mensagens"
+      },
+      {
+        "name": "Thunderbird",
+        "id": "Mozilla.Thunderbird",
+        "description": "Cliente de email gratuito"
+      },
+      {
+        "name": "Outlook",
+        "id": "Microsoft.OutlookForWindows",
+        "description": "Cliente de email da Microsoft"
+      },
+      {
+        "name": "Webex",
+        "id": "Cisco.CiscoWebexMeetings",
+        "description": "Videoconferência da Cisco"
+      },
+      {
+        "name": "Mattermost",
+        "id": "Mattermost.MattermostDesktop",
+        "description": "Chat corporativo open source"
+      },
+      {
+        "name": "RocketChat",
+        "id": "RocketChat.RocketChat",
+        "description": "Mensageiro open source self-hosted"
+      },
+      {
+        "name": "Jitsi Meet",
+        "id": "Jitsi.JitsiMeet",
+        "description": "Videoconferência open source"
+      }
+    ]
+  },
+  {
+    "category": "Segurança",
+    "apps": [
+      {
+        "name": "Malwarebytes",
+        "id": "Malwarebytes.Malwarebytes",
+        "description": "Antimalware popular"
+      },
+      {
+        "name": "Avast Free",
+        "id": "Avast.AvastFreeAntivirus",
+        "description": "Antivírus gratuito"
+      },
+      {
+        "name": "Bitdefender",
+        "id": "Bitdefender.Bitdefender",
+        "description": "Antivírus premiado"
+      },
+      {
+        "name": "AdwCleaner",
+        "id": "Malwarebytes.AdwCleaner",
+        "description": "Remove adware e PUPs"
+      },
+      {
+        "name": "ClamAV",
+        "id": "ClamAV.ClamAV",
+        "description": "Antivírus open source"
+      },
+      {
+        "name": "Bitwarden",
+        "id": "Bitwarden.Bitwarden",
+        "description": "Gerenciador de senhas open source"
+      },
+      {
+        "name": "KeePass",
+        "id": "DominikReichl.KeePass",
+        "description": "Gerenciador de senhas local"
+      },
+      {
+        "name": "KeePassXC",
+        "id": "KeePassXCTeam.KeePassXC",
+        "description": "Gerenciador de senhas moderno"
+      },
+      {
+        "name": "ProtonVPN",
+        "id": "ProtonTechnologies.ProtonVPN",
+        "description": "VPN segura e gratuita"
+      },
+      {
+        "name": "OpenVPN",
+        "id": "OpenVPNTechnologies.OpenVPN",
+        "description": "Cliente VPN open source"
+      },
+      {
+        "name": "VeraCrypt",
+        "id": "IDRIX.VeraCrypt",
+        "description": "Criptografia de arquivos e discos"
+      },
+      {
+        "name": "Gpg4win",
+        "id": "GnuPG.Gpg4win",
+        "description": "Criptografia de emails e arquivos"
+      },
+      {
+        "name": "ClearPass OnGuard",
+        "id": "Aruba.ClearPassOnGuard",
+        "description": "Agente NAC da Aruba/HPE"
+      }
+    ]
+  },
+  {
+    "category": "Utilitários",
+    "apps": [
+      {
+        "name": "7-Zip",
+        "id": "7zip.7zip",
+        "description": "Compactador de arquivos"
+      },
+      {
+        "name": "WinRAR",
+        "id": "RARLab.WinRAR",
+        "description": "Compactador de arquivos popular"
+      },
+      {
+        "name": "CPU-Z",
+        "id": "CPUID.CPU-Z",
+        "description": "Informações do hardware"
+      },
+      {
+        "name": "GPU-Z",
+        "id": "TechPowerUp.GPU-Z",
+        "description": "Informações da placa de vídeo"
+      },
+      {
+        "name": "HWiNFO",
+        "id": "REALiX.HWiNFO",
+        "description": "Monitoramento de hardware detalhado"
+      },
+      {
+        "name": "HWMonitor",
+        "id": "CPUID.HWMonitor",
+        "description": "Monitor de temperatura e voltagem"
+      },
+      {
+        "name": "Speccy",
+        "id": "Piriform.Speccy",
+        "description": "Informações do sistema"
+      },
+      {
+        "name": "CrystalDiskInfo",
+        "id": "CrystalDewWorld.CrystalDiskInfo",
+        "description": "Saúde do HD/SSD"
+      },
+      {
+        "name": "CrystalDiskMark",
+        "id": "CrystalDewWorld.CrystalDiskMark",
+        "description": "Benchmark de disco"
+      },
+      {
+        "name": "FurMark",
+        "id": "Geeks3D.FurMark",
+        "description": "Stress test para GPU"
+      },
+      {
+        "name": "Prime95",
+        "id": "Mersenne.Prime95",
+        "description": "Stress test para CPU"
+      },
+      {
+        "name": "TreeSize Free",
+        "id": "JAMSoftware.TreeSize.Free",
+        "description": "Análise de espaço em disco"
+      },
+      {
+        "name": "WizTree",
+        "id": "AntibodySoftware.WizTree",
+        "description": "Analisador de espaço em disco rápido"
+      },
+      {
+        "name": "WinDirStat",
+        "id": "WinDirStat.WinDirStat",
+        "description": "Visualizador de uso de disco"
+      },
+      {
+        "name": "Everything",
+        "id": "voidtools.Everything",
+        "description": "Busca instantânea de arquivos"
+      },
+      {
+        "name": "PowerToys",
+        "id": "Microsoft.PowerToys",
+        "description": "Utilitários avançados da Microsoft"
+      },
+      {
+        "name": "Power Automate",
+        "id": "Microsoft.PowerAutomateDesktop",
+        "description": "Automação de tarefas da Microsoft"
+      },
+      {
+        "name": "AutoHotkey",
+        "id": "AutoHotkey.AutoHotkey",
+        "description": "Automação de tarefas no Windows"
+      },
+      {
+        "name": "Ditto",
+        "id": "Ditto.Ditto",
+        "description": "Gerenciador de área de transferência"
+      },
+      {
+        "name": "Total Commander",
+        "id": "Ghisler.TotalCommander",
+        "description": "Gerenciador de arquivos dual-pane"
+      },
+      {
+        "name": "Double Commander",
+        "id": "alexx2000.DoubleCommander",
+        "description": "Gerenciador de arquivos open source"
+      },
+      {
+        "name": "NirLauncher",
+        "id": "NirSoft.NirLauncher",
+        "description": "Coleção de utilitários NirSoft"
+      },
+      {
+        "name": "Sysinternals Suite",
+        "id": "Microsoft.Sysinternals",
+        "description": "Suite completa de utilitários da Microsoft"
+      },
+      {
+        "name": "ShareX",
+        "id": "ShareX.ShareX",
+        "description": "Captura de tela avançada"
+      },
+      {
+        "name": "Greenshot",
+        "id": "Greenshot.Greenshot",
+        "description": "Captura de tela simples"
+      },
+      {
+        "name": "Rufus",
+        "id": "Rufus.Rufus",
+        "description": "Criador de pendrive bootável"
+      },
+      {
+        "name": "Ventoy",
+        "id": "Ventoy.Ventoy",
+        "description": "Multi-boot em pendrive"
+      },
+      {
+        "name": "Etcher",
+        "id": "Balena.Etcher",
+        "description": "Gravador de imagens USB"
+      },
+      {
+        "name": "Disk2vhd",
+        "id": "Microsoft.Sysinternals.Disk2vhd",
+        "description": "Converte disco físico em VHD"
+      },
+      {
+        "name": "WinMerge",
+        "id": "WinMerge.WinMerge",
+        "description": "Comparação e merge de arquivos"
+      },
+      {
+        "name": "Revo Uninstaller",
+        "id": "RevoUninstaller.RevoUninstaller",
+        "description": "Desinstalador avançado"
+      },
+      {
+        "name": "BCUninstaller",
+        "id": "Klocman.BulkCrapUninstaller",
+        "description": "Desinstalador em lote gratuito"
+      },
+      {
+        "name": "CCleaner",
+        "id": "Piriform.CCleaner",
+        "description": "Limpeza e otimização do sistema"
+      },
+      {
+        "name": "f.lux",
+        "id": "flux.flux",
+        "description": "Ajuste de temperatura de cor da tela"
+      },
+      {
+        "name": "EarTrumpet",
+        "id": "File-New-Project.EarTrumpet",
+        "description": "Controle de volume por aplicativo"
+      },
+      {
+        "name": "Rainmeter",
+        "id": "Rainmeter.Rainmeter",
+        "description": "Personalização da área de trabalho"
+      },
+      {
+        "name": "Flow Launcher",
+        "id": "Flow-Launcher.Flow-Launcher",
+        "description": "Launcher rápido para Windows"
+      },
+      {
+        "name": "Bulk Rename Utility",
+        "id": "BulkRenameUtility.BulkRenameUtility",
+        "description": "Renomeação em lote de arquivos"
+      },
+      {
+        "name": "Autoruns",
+        "id": "Microsoft.Sysinternals.Autoruns",
+        "description": "Gerencia programas de inicialização"
+      },
+      {
+        "name": "Process Explorer",
+        "id": "Microsoft.Sysinternals.ProcessExplorer",
+        "description": "Monitor de processos avançado"
+      },
+      {
+        "name": "Process Monitor",
+        "id": "Microsoft.Sysinternals.ProcessMonitor",
+        "description": "Monitor de atividade do sistema"
+      },
+      {
+        "name": "WinGet UI",
+        "id": "MartiCliment.UniGetUI",
+        "description": "Interface gráfica para winget e outros"
+      },
+      {
+        "name": "Chocolatey GUI",
+        "id": "Chocolatey.ChocolateyGUI",
+        "description": "Interface gráfica para Chocolatey"
+      },
+      {
+        "name": "Google Drive",
+        "id": "Google.GoogleDrive",
+        "description": "Armazenamento em nuvem do Google"
+      },
+      {
+        "name": "Dropbox",
+        "id": "Dropbox.Dropbox",
+        "description": "Armazenamento em nuvem"
+      },
+      {
+        "name": "OneDrive",
+        "id": "Microsoft.OneDrive",
+        "description": "Armazenamento em nuvem da Microsoft"
+      },
+      {
+        "name": "MEGA",
+        "id": "Mega.MEGADesktop",
+        "description": "Armazenamento em nuvem criptografado"
+      },
+      {
+        "name": "Nextcloud",
+        "id": "Nextcloud.NextcloudDesktop",
+        "description": "Nuvem privada open source"
+      },
+      {
+        "name": "Box",
+        "id": "Box.Box",
+        "description": "Armazenamento em nuvem corporativo"
+      },
+      {
+        "name": "pCloud",
+        "id": "pCloud.pCloud",
+        "description": "Armazenamento com plano vitalício"
+      },
+      {
+        "name": "Macrium Reflect Free",
+        "id": "MacriumSoftware.MacriumReflect",
+        "description": "Backup e clone de disco gratuito"
+      },
+      {
+        "name": "AOMEI Backupper",
+        "id": "AOMEI.Backupper.Standard",
+        "description": "Backup e restauração gratuito"
+      },
+      {
+        "name": "FreeFileSync",
+        "id": "FreeFileSync.FreeFileSync",
+        "description": "Sincronização de arquivos gratuita"
+      },
+      {
+        "name": "Duplicati",
+        "id": "Duplicati.Duplicati",
+        "description": "Backup em nuvem criptografado open source"
+      },
+      {
+        "name": "Veeam Agent",
+        "id": "Veeam.VeeamAgentforMicrosoftWindows",
+        "description": "Backup profissional gratuito da Veeam"
+      },
+      {
+        "name": "Restic",
+        "id": "Restic.Restic",
+        "description": "Backup incremental open source"
+      },
+      {
+        "name": "ChatGPT",
+        "id": "OpenAI.ChatGPT",
+        "description": "App desktop do ChatGPT"
+      },
+      {
+        "name": "Claude",
+        "id": "Anthropic.Claude",
+        "description": "App desktop do Claude"
+      },
+      {
+        "name": "Ollama",
+        "id": "Ollama.Ollama",
+        "description": "Rode modelos de IA localmente"
+      },
+      {
+        "name": "LM Studio",
+        "id": "ElementLabs.LMStudio",
+        "description": "Interface para LLMs locais"
+      },
+      {
+        "name": "Grammarly",
+        "id": "Grammarly.Grammarly",
+        "description": "Assistente de escrita com IA"
+      },
+      {
+        "name": "Flow Launcher",
+        "id": "Flow-Launcher.Flow-Launcher",
+        "description": "Launcher rápido com plugins"
+      },
+      {
+        "name": "Keypirinha",
+        "id": "Keypirinha.Keypirinha",
+        "description": "Launcher de produtividade rápida"
+      }
+    ]
+  },
+  {
+    "category": "Jogos",
+    "apps": [
+      {
+        "name": "Steam",
+        "id": "Valve.Steam",
+        "description": "Plataforma de jogos da Valve"
+      },
+      {
+        "name": "Epic Games",
+        "id": "EpicGames.EpicGamesLauncher",
+        "description": "Plataforma de jogos da Epic"
+      },
+      {
+        "name": "GOG Galaxy",
+        "id": "GOG.Galaxy",
+        "description": "Plataforma de jogos DRM-free"
+      },
+      {
+        "name": "EA App",
+        "id": "ElectronicArts.EADesktop",
+        "description": "Plataforma da EA Games"
+      },
+      {
+        "name": "Ubisoft Connect",
+        "id": "Ubisoft.Connect",
+        "description": "Plataforma da Ubisoft"
+      },
+      {
+        "name": "Battle.net",
+        "id": "Blizzard.BattleNet",
+        "description": "Plataforma da Blizzard"
+      },
+      {
+        "name": "Xbox App",
+        "id": "Microsoft.GamingApp",
+        "description": "Plataforma Xbox no Windows"
+      },
+      {
+        "name": "Playnite",
+        "id": "Playnite.Playnite",
+        "description": "Gerenciador de jogos universal"
+      },
+      {
+        "name": "Parsec",
+        "id": "Parsec.Parsec",
+        "description": "Streaming de jogos remoto"
+      },
+      {
+        "name": "Sunshine",
+        "id": "LizardByte.Sunshine",
+        "description": "Host de streaming de jogos"
+      }
+    ]
+  },
+  {
+    "category": "T.I. & Infra",
+    "apps": [
+      {
+        "name": "Microsoft 365",
+        "id": "Microsoft.Office",
+        "description": "Suite Office da Microsoft"
+      },
+      {
+        "name": "Power BI Desktop",
+        "id": "Microsoft.PowerBI",
+        "description": "Business Intelligence da Microsoft"
+      },
+      {
+        "name": "Azure Data Studio",
+        "id": "Microsoft.AzureDataStudio",
+        "description": "IDE para Azure e SQL Server"
+      },
+      {
+        "name": "Azure CLI",
+        "id": "Microsoft.AzureCLI",
+        "description": "Interface de linha de comando Azure"
+      },
+      {
+        "name": "AWS CLI",
+        "id": "Amazon.AWSCLI",
+        "description": "Interface de linha de comando AWS"
+      },
+      {
+        "name": "Google Cloud CLI",
+        "id": "Google.CloudSDK",
+        "description": "Interface de linha de comando GCP"
+      },
+      {
+        "name": "Terraform",
+        "id": "Hashicorp.Terraform",
+        "description": "Infraestrutura como código"
+      },
+      {
+        "name": "Kubernetes CLI",
+        "id": "Kubernetes.kubectl",
+        "description": "Gerenciamento de clusters Kubernetes"
+      },
+      {
+        "name": "Helm",
+        "id": "Helm.Helm",
+        "description": "Gerenciador de pacotes Kubernetes"
+      },
+      {
+        "name": "VirtualBox",
+        "id": "Oracle.VirtualBox",
+        "description": "Virtualização gratuita da Oracle"
+      },
+      {
+        "name": "VMware Workstation Player",
+        "id": "VMware.WorkstationPlayer",
+        "description": "Virtualização da VMware"
+      },
+      {
+        "name": "AnyDesk",
+        "id": "AnyDeskSoftwareGmbH.AnyDesk",
+        "description": "Acesso remoto rápido"
+      },
+      {
+        "name": "TeamViewer",
+        "id": "TeamViewer.TeamViewer",
+        "description": "Acesso remoto e suporte"
+      },
+      {
+        "name": "Splashtop Business",
+        "id": "Splashtop.SplashtopBusiness",
+        "description": "Acesso remoto empresarial"
+      },
+      {
+        "name": "Remote Desktop",
+        "id": "Microsoft.RemoteDesktopClient",
+        "description": "Acesso remoto da Microsoft"
+      },
+      {
+        "name": "Citrix Workspace",
+        "id": "Citrix.Workspace",
+        "description": "Cliente Citrix para ambientes virtuais"
+      },
+      {
+        "name": "FortiClient VPN",
+        "id": "Fortinet.FortiClientVPN",
+        "description": "VPN corporativa da Fortinet"
+      },
+      {
+        "name": "Cisco AnyConnect",
+        "id": "Cisco.CiscoAnyConnect",
+        "description": "VPN corporativa da Cisco"
+      },
+      {
+        "name": "GlobalProtect",
+        "id": "PaloAltoNetworks.GlobalProtect",
+        "description": "VPN da Palo Alto Networks"
+      },
+      {
+        "name": "SAP GUI",
+        "id": "SAP.SAPGUI",
+        "description": "Interface SAP para Windows"
+      },
+      {
+        "name": "Jira",
+        "id": "Atlassian.Jira",
+        "description": "Gerenciamento de projetos da Atlassian"
+      },
+      {
+        "name": "Confluence",
+        "id": "Atlassian.Confluence",
+        "description": "Wiki corporativa da Atlassian"
+      },
+      {
+        "name": "Zabbix Agent",
+        "id": "Zabbix.ZabbixAgent",
+        "description": "Agente de monitoramento Zabbix"
+      },
+      {
+        "name": "GLPI Agent",
+        "id": "Teclib.GLPIAgent",
+        "description": "Agente de inventário GLPI"
+      },
+      {
+        "name": "Splunk Universal Forwarder",
+        "id": "Splunk.UniversalForwarder",
+        "description": "Agente de coleta de logs Splunk"
+      },
+      {
+        "name": "PDQ Deploy",
+        "id": "PDQ.PDQDeploy",
+        "description": "Deploy de software em rede"
+      },
+      {
+        "name": "PDQ Inventory",
+        "id": "PDQ.PDQInventory",
+        "description": "Inventário de hardware e software em rede"
+      },
+      {
+        "name": "ManageEngine Endpoint",
+        "id": "ManageEngine.DesktopCentral",
+        "description": "Gerenciamento de endpoints corporativos"
+      },
+      {
+        "name": "DameWare Remote",
+        "id": "SolarWinds.DameWareRemoteEverywhere",
+        "description": "Suporte remoto SolarWinds"
+      },
+      {
+        "name": "Wireshark",
+        "id": "WiresharkFoundation.Wireshark",
+        "description": "Analisador de pacotes de rede"
+      },
+      {
+        "name": "Nmap",
+        "id": "Insecure.Nmap",
+        "description": "Scanner de rede e portas"
+      },
+      {
+        "name": "PuTTY",
+        "id": "PuTTY.PuTTY",
+        "description": "Cliente SSH e Telnet"
+      },
+      {
+        "name": "MobaXterm",
+        "id": "Mobatek.MobaXterm",
+        "description": "Terminal SSH com interface gráfica"
+      },
+      {
+        "name": "WinSCP",
+        "id": "WinSCP.WinSCP",
+        "description": "Cliente SFTP/FTP seguro"
+      },
+      {
+        "name": "FileZilla",
+        "id": "TimKosse.FileZilla.Client",
+        "description": "Cliente FTP gratuito"
+      },
+      {
+        "name": "Advanced IP Scanner",
+        "id": "Famatech.AdvancedIPScanner",
+        "description": "Scanner de IPs na rede"
+      },
+      {
+        "name": "Angry IP Scanner",
+        "id": "angryziber.AngryIPScanner",
+        "description": "Scanner de rede rápido"
+      },
+      {
+        "name": "Fiddler Everywhere",
+        "id": "Progress.Fiddler.Everywhere",
+        "description": "Proxy para debug HTTP/HTTPS"
+      },
+      {
+        "name": "mRemoteNG",
+        "id": "mRemoteNG.mRemoteNG",
+        "description": "Gerenciador de conexões remotas"
+      },
+      {
+        "name": "RealVNC Viewer",
+        "id": "RealVNC.VNCViewer",
+        "description": "Cliente VNC gratuito"
+      },
+      {
+        "name": "OpenSSH",
+        "id": "Microsoft.OpenSSH.Beta",
+        "description": "SSH nativo da Microsoft"
+      },
+      {
+        "name": "Tailscale",
+        "id": "Tailscale.Tailscale",
+        "description": "VPN mesh fácil de usar"
+      },
+      {
+        "name": "Netbird",
+        "id": "Wiretrustee.Netbird",
+        "description": "VPN peer-to-peer open source"
+      },
+      {
+        "name": "Lansweeper",
+        "id": "Lansweeper.Lansweeper",
+        "description": "Inventário e monitoramento de rede"
+      },
+      {
+        "name": "SolarWinds TFTP",
+        "id": "SolarWinds.TFTPServer",
+        "description": "Servidor TFTP gratuito"
+      },
+      {
+        "name": "Packet Tracer",
+        "id": "Cisco.PacketTracer",
+        "description": "Simulador de redes da Cisco"
+      }
     ]
   }
 ]

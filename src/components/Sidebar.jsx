@@ -19,15 +19,15 @@ function Sidebar({
     : null;
 
   return (
-    <aside className="w-60 shrink-0 flex flex-col">
-      <div className="bg-gray-800 rounded-lg overflow-hidden">
+    <aside className="flex flex-col">
+      <div className="bg-gray-800 rounded-lg border border-gray-700">
 
         {/* Categorias */}
-        <div className="p-4">
-          <h2 className="text-gray-400 text-xs font-bold uppercase mb-4 tracking-widest">
+        <div className="p-3">
+          <h2 className="text-gray-400 text-xs font-bold uppercase mb-3 tracking-widest">
             Categorias
           </h2>
-          <nav className="flex flex-col gap-1" aria-label="Categorias de programas">
+          <nav className="flex flex-col gap-0.5" aria-label="Categorias de programas">
             {categorias.map((cat) => {
               const Icon = categoryIcons[cat.category];
               const ativo = categoriaAtiva === cat.category;
@@ -41,7 +41,7 @@ function Sidebar({
                   onClick={() => !semResultado && onSelecionar(cat.category)}
                   aria-current={ativo ? "page" : undefined}
                   disabled={semResultado}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-left ${
+                  className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 text-left ${
                     semResultado
                       ? "text-gray-600 cursor-not-allowed opacity-40"
                       : ativo
@@ -49,7 +49,7 @@ function Sidebar({
                       : "text-gray-400 hover:bg-gray-700 hover:text-white"
                   }`}
                 >
-                  {Icon && <Icon className="w-4 h-4 shrink-0" aria-hidden="true" />}
+                  {Icon && <Icon className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />}
                   <span className="flex-1">{cat.category}</span>
 
                   <div className="ml-auto shrink-0">

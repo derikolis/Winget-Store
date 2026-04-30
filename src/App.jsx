@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const Home = lazy(() => import("./pages/Home"));
+const AppPage = lazy(() => import("./pages/AppPage"));
 const ComoUsar = lazy(() => import("./pages/ComoUsar"));
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Privacidade = lazy(() => import("./pages/Privacidade"));
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/app" element={<Home />} />
+        <Route path="/app/:id" element={<AppPage />} />
         <Route path="/como-usar" element={<ComoUsar />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/privacidade" element={<Privacidade />} />

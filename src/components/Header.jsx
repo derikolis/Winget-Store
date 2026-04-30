@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiMagnifyingGlass, HiArrowLeft, HiCog6Tooth, HiXMark } from "react-icons/hi2";
+import { HiMagnifyingGlass, HiArrowLeft, HiCog6Tooth, HiBars3 } from "react-icons/hi2";
 import Logo from "./Logo";
 
-function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes }) {
+function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleSidebar }) {
   const [configAberta, setConfigAberta] = useState(false);
 
   return (
@@ -54,20 +54,31 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes }) {
         </div>
       )}
 
-      <header className="bg-gray-800 border-b border-gray-700 py-4 px-8 relative z-30">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-8">
+      <header className="bg-gray-800 border-b border-gray-700 py-3 px-3 sm:px-4 lg:px-6 relative z-30 shrink-0">
+        <div className="w-full flex items-center justify-between gap-3">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0">
-            <Logo />
-            <div>
-              <h1 className="text-xl font-bold text-white leading-tight">Winget Store</h1>
-              <p className="text-gray-400 text-xs">Instale programas no Windows</p>
-            </div>
-          </Link>
+          {/* Logo + botão menu mobile */}
+          <div className="flex items-center gap-3">
+            {/* Botão hamburger — só aparece em telas pequenas */}
+            <button
+              onClick={onToggleSidebar}
+              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white transition-colors"
+              aria-label="Abrir categorias"
+            >
+              <HiBars3 className="w-5 h-5" />
+            </button>
 
-          {/* Navegação */}
-          <nav className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-3 shrink-0">
+              <Logo />
+              <div className="hidden sm:block">
+                <h1 className="text-lg sm:text-xl font-bold text-white leading-tight">Winget Store</h1>
+                <p className="text-gray-400 text-xs">Instale programas no Windows</p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navegação — some em telas pequenas */}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             <Link
               to="/"
               className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors border border-blue-400/30 hover:border-blue-300/50 px-3 py-1.5 rounded-lg bg-blue-400/5 hover:bg-blue-400/10"
@@ -78,36 +89,36 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes }) {
             <Link to="/como-usar" className="text-gray-400 hover:text-white text-sm transition-colors">
               Como usar
             </Link>
-            <Link to="/sobre" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link to="/sobre" className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block">
               Sobre
             </Link>
-            <Link to="/privacidade" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link to="/privacidade" className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block">
               Privacidade
             </Link>
           </nav>
 
           {/* Direita: badge + busca + engrenagem */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
 
             {/* Badge selecionados */}
-            <div className="w-[120px] flex justify-end">
-              <span className={`bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full transition-all duration-300 ${
+            <div className="flex w-[140px] justify-end">
+              <span className={`bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full transition-all duration-300 whitespace-nowrap ${
                 totalSelecionados > 0 ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
               }`}>
                 {totalSelecionados} selecionado(s)
               </span>
             </div>
 
-            {/* Busca */}
+            {/* Busca — esconde em telas muito pequenas */}
             {busca !== undefined && (
-              <div className="relative">
+              <div className="relative hidden sm:block">
                 <HiMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Buscar programa..."
                   value={busca}
                   onChange={(e) => onBusca(e.target.value)}
-                  className="bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-9 pr-4 py-2 w-52 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  className="bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-9 pr-4 py-2 w-36 lg:w-52 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                 />
               </div>
             )}
