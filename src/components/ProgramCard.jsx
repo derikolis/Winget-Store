@@ -39,7 +39,7 @@ function ProgramCard({ app, selecionado, onToggle }) {
             alt=""
             aria-hidden="true"
             onError={() => setImgError(true)}
-            className={`w-6 h-6 rounded shrink-0 object-contain ${selecionado ? "brightness-0 invert" : ""}`}
+            className="w-6 h-6 rounded shrink-0 object-contain"
           />
         ) : (
           <div className={`w-6 h-6 rounded shrink-0 flex items-center justify-center text-xs font-bold ${

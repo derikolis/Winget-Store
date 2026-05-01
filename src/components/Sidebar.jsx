@@ -18,15 +18,20 @@ function Sidebar({
     ? new Set(categoriasFiltradas.map((c) => c.category))
     : null;
 
+  const totalApps = categorias.reduce((acc, cat) => acc + cat.apps.length, 0);
+
   return (
     <aside className="flex flex-col">
       <div className="bg-gray-800 rounded-lg border border-gray-700">
 
         {/* Categorias */}
         <div className="p-3">
-          <h2 className="text-gray-400 text-xs font-bold uppercase mb-3 tracking-widest">
-            Categorias
-          </h2>
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-gray-400 text-xs font-bold uppercase tracking-widest">
+              Categorias
+            </h2>
+            <span className="text-xs text-gray-500 font-mono">{totalApps} apps</span>
+          </div>
           <nav className="flex flex-col gap-0.5" aria-label="Categorias de programas">
             {categorias.map((cat) => {
               const Icon = categoryIcons[cat.category];

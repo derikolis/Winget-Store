@@ -261,6 +261,7 @@ const appDomains = {
   "Progress.Fiddler.Everywhere": "telerik.com",
   "mRemoteNG.mRemoteNG": "mremoteng.org",
   "RealVNC.VNCViewer": "realvnc.com",
+  "uvnc.ultravnc": "uvnc.com",
   "Microsoft.OpenSSH.Beta": "microsoft.com",
   "Tailscale.Tailscale": "tailscale.com",
   "Wiretrustee.Netbird": "netbird.io",

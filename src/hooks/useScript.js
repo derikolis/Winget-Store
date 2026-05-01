@@ -4,6 +4,9 @@ const SCRIPT_HEADER = `# ================================================
 # Script gerado por winget-store.vercel.app
 # ================================================
 
+# --- Manter janela aberta em qualquer situacao ---
+$ErrorActionPreference = "Continue"
+
 # --- Garantir que a janela nao feche em caso de erro fatal ---
 trap {
     Write-Host ""
@@ -261,34 +264,24 @@ export function useScript() {
           `$atual++`,
           `Write-Log "[$atual/$total] Instalando ${id}..." Cyan`,
           ``,
-          // ✅ Timeout por pacote via Job
-          `$job = Start-Job -ScriptBlock { winget install --id ${id} ${flags} }`,
-          `$concluido = Wait-Job $job -Timeout $timeoutSegundos`,
-          `if (-not $concluido) {`,
-          `    Stop-Job $job`,
-          `    Remove-Job $job`,
-          `    $erros++`,
-          `    Write-Log "  [TIMEOUT] ${id} excedeu $($timeoutSegundos)s e foi pulado." Yellow`,
-          `} else {`,
-          `    Receive-Job $job`,
-          `    $exitCode = $job.ChildJobs[0].JobStateInfo.Reason`,
-          `    Remove-Job $job`,
+          // Usa --source winget para ignorar msstore (evita erro de certificado em domínios corporativos)
+          `winget install --id ${id} ${flags} --source winget`,
         ];
 
         if (verificarErros) {
           linhas.push(
-            `    if ($LASTEXITCODE -ne 0) {`,
-            `        $erros++`,
-            `        Write-Log "  [ERRO] Falha ao instalar ${id} (codigo: $LASTEXITCODE)" Red`,
-            `    } else {`,
-            `        Write-Log "  [OK] ${id} instalado com sucesso" Green`,
-            `    }`,
+            `if ($LASTEXITCODE -ne 0) {`,
+            `    $erros++`,
+            `    Write-Log "  [ERRO] Falha ao instalar ${id} (codigo: $LASTEXITCODE)" Red`,
+            `} else {`,
+            `    Write-Log "  [OK] ${id} instalado com sucesso" Green`,
+            `}`,
           );
         } else {
-          linhas.push(`    if ($LASTEXITCODE -ne 0) { $erros++ }`);
+          linhas.push(`if ($LASTEXITCODE -ne 0) { $erros++ }`);
         }
 
-        linhas.push(`}`, ``);
+        linhas.push(``);
         return linhas.join("\n");
       }),
     ];

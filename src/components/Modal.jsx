@@ -13,7 +13,6 @@ function Modal({ script, onFechar, onBaixar }) {
     });
   }
 
-  // Fechar ao clicar no backdrop
   function handleBackdropClick(e) {
     if (e.target === e.currentTarget) onFechar();
   }
@@ -26,33 +25,25 @@ function Modal({ script, onFechar, onBaixar }) {
       aria-labelledby="modal-title"
       onClick={handleBackdropClick}
     >
-      {/* ✅ MELHORIA: max-h responsivo para não cortar em telas pequenas */}
       <div className="bg-gray-800 rounded-xl w-full max-w-2xl border border-gray-700 flex flex-col max-h-[90vh]">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 shrink-0">
-          <h2
-            id="modal-title"
-            className="text-white font-bold text-lg flex items-center gap-2"
-          >
+          <h2 id="modal-title" className="text-white font-bold text-lg flex items-center gap-2">
             <BsLightningChargeFill className="text-blue-400" aria-hidden="true" />
             Script Gerado
           </h2>
-          <button
-            onClick={onFechar}
-            className="text-gray-400 hover:text-white transition-colors"
-            aria-label="Fechar modal"
-          >
+          <button onClick={onFechar} className="text-gray-400 hover:text-white transition-colors">
             <HiXMark className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Conteúdo — scrollável */}
+        {/* Conteúdo */}
         <div className="px-6 py-4 overflow-y-auto flex-1">
           <p className="text-gray-400 text-sm mb-3">
             Seu script personalizado está pronto! Baixe e execute como Administrador.
           </p>
-          {/* ✅ MELHORIA: max-h flexível baseado em viewport ao invés de fixo */}
+
           <pre
             className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm overflow-auto max-h-[40vh] font-mono leading-relaxed"
             aria-label="Conteúdo do script gerado"
@@ -63,38 +54,24 @@ function Modal({ script, onFechar, onBaixar }) {
 
         {/* Footer */}
         <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700 shrink-0">
-          <button
-            onClick={onFechar}
-            className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors"
-          >
+          <button onClick={onFechar} className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors">
             Cancelar
           </button>
           <button
             onClick={copiar}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all duration-200 ${
-              copiado
-                ? "bg-green-600 text-white"
-                : "bg-gray-700 hover:bg-gray-600 text-white"
+              copiado ? "bg-green-600 text-white" : "bg-gray-700 hover:bg-gray-600 text-white"
             }`}
-            aria-label={copiado ? "Script copiado com sucesso" : "Copiar script"}
           >
-            {copiado ? (
-              <>
-                <HiClipboardDocumentCheck className="w-4 h-4" aria-hidden="true" />
-                Copiado!
-              </>
-            ) : (
-              <>
-                <HiClipboardDocument className="w-4 h-4" aria-hidden="true" />
-                Copiar
-              </>
-            )}
+            {copiado
+              ? <><HiClipboardDocumentCheck className="w-4 h-4" /> Copiado!</>
+              : <><HiClipboardDocument className="w-4 h-4" /> Copiar</>}
           </button>
           <button
             onClick={onBaixar}
             className="flex items-center gap-2 px-6 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors"
           >
-            <FiDownload className="w-4 h-4" aria-hidden="true" />
+            <FiDownload className="w-4 h-4" />
             Baixar .ps1
           </button>
         </div>

@@ -157,6 +157,7 @@ const wikiTerms = {
   "Mobatek.MobaXterm": "MobaXterm",
   "Famatech.AdvancedIPScanner": "Advanced IP Scanner",
   "Tailscale.Tailscale": "Tailscale",
+  "uvnc.ultravnc": "UltraVNC",
   "OpenAI.ChatGPT": "ChatGPT",
   "Anthropic.Claude": "Claude language model",
   "Ollama.Ollama": "Ollama software",

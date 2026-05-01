@@ -1461,6 +1461,11 @@
         "name": "Packet Tracer",
         "id": "Cisco.PacketTracer",
         "description": "Simulador de redes da Cisco"
+      },
+      {
+        "name": "UltraVNC",
+        "id": "uvnc.ultravnc",
+        "description": "Acesso remoto via VNC gratuito e open source"
       }
     ]
   }
