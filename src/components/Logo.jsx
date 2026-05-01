@@ -11,12 +11,44 @@ function Logo() {
       <rect width="40" height="40" rx="8" fill="#2563EB" />
 
       {/* Janela Windows */}
-      <rect x="8" y="8" width="10" height="10" rx="1" fill="white" opacity="0.9" />
-      <rect x="22" y="8" width="10" height="10" rx="1" fill="white" opacity="0.7" />
-      <rect x="8" y="22" width="10" height="10" rx="1" fill="white" opacity="0.7" />
+      <rect
+        x="8"
+        y="8"
+        width="10"
+        height="10"
+        rx="1"
+        fill="white"
+        opacity="0.9"
+      />
+      <rect
+        x="22"
+        y="8"
+        width="10"
+        height="10"
+        rx="1"
+        fill="white"
+        opacity="0.7"
+      />
+      <rect
+        x="8"
+        y="22"
+        width="10"
+        height="10"
+        rx="1"
+        fill="white"
+        opacity="0.7"
+      />
 
       {/* Seta de download */}
-      <rect x="22" y="22" width="10" height="10" rx="1" fill="white" opacity="0.4" />
+      <rect
+        x="22"
+        y="22"
+        width="10"
+        height="10"
+        rx="1"
+        fill="white"
+        opacity="0.4"
+      />
       <path
         d="M27 24 L27 29 M24.5 27 L27 29.5 L29.5 27"
         stroke="#2563EB"
@@ -25,7 +57,7 @@ function Logo() {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export default Logo
+export default Logo;

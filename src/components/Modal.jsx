@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { HiXMark, HiClipboardDocument, HiClipboardDocumentCheck } from "react-icons/hi2";
+import {
+  HiXMark,
+  HiClipboardDocument,
+  HiClipboardDocumentCheck,
+} from "react-icons/hi2";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { FiDownload } from "react-icons/fi";
 
@@ -26,14 +30,22 @@ function Modal({ script, onFechar, onBaixar }) {
       onClick={handleBackdropClick}
     >
       <div className="bg-gray-800 rounded-xl w-full max-w-2xl border border-gray-700 flex flex-col max-h-[90vh]">
-
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 shrink-0">
-          <h2 id="modal-title" className="text-white font-bold text-lg flex items-center gap-2">
-            <BsLightningChargeFill className="text-blue-400" aria-hidden="true" />
+          <h2
+            id="modal-title"
+            className="text-white font-bold text-lg flex items-center gap-2"
+          >
+            <BsLightningChargeFill
+              className="text-blue-400"
+              aria-hidden="true"
+            />
             Script Gerado
           </h2>
-          <button onClick={onFechar} className="text-gray-400 hover:text-white transition-colors">
+          <button
+            onClick={onFechar}
+            className="text-gray-400 hover:text-white transition-colors"
+          >
             <HiXMark className="w-5 h-5" />
           </button>
         </div>
@@ -41,7 +53,8 @@ function Modal({ script, onFechar, onBaixar }) {
         {/* Conteúdo */}
         <div className="px-6 py-4 overflow-y-auto flex-1">
           <p className="text-gray-400 text-sm mb-3">
-            Seu script personalizado está pronto! Baixe e execute como Administrador.
+            Seu script personalizado está pronto! Baixe e execute como
+            Administrador.
           </p>
 
           <pre
@@ -54,18 +67,29 @@ function Modal({ script, onFechar, onBaixar }) {
 
         {/* Footer */}
         <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-700 shrink-0">
-          <button onClick={onFechar} className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors">
+          <button
+            onClick={onFechar}
+            className="px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors"
+          >
             Cancelar
           </button>
           <button
             onClick={copiar}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all duration-200 ${
-              copiado ? "bg-green-600 text-white" : "bg-gray-700 hover:bg-gray-600 text-white"
+              copiado
+                ? "bg-green-600 text-white"
+                : "bg-gray-700 hover:bg-gray-600 text-white"
             }`}
           >
-            {copiado
-              ? <><HiClipboardDocumentCheck className="w-4 h-4" /> Copiado!</>
-              : <><HiClipboardDocument className="w-4 h-4" /> Copiar</>}
+            {copiado ? (
+              <>
+                <HiClipboardDocumentCheck className="w-4 h-4" /> Copiado!
+              </>
+            ) : (
+              <>
+                <HiClipboardDocument className="w-4 h-4" /> Copiar
+              </>
+            )}
           </button>
           <button
             onClick={onBaixar}
@@ -75,7 +99,6 @@ function Modal({ script, onFechar, onBaixar }) {
             Baixar .ps1
           </button>
         </div>
-
       </div>
     </div>
   );

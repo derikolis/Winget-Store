@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { HiArrowLeft, HiArrowTopRightOnSquare, HiCheckCircle } from "react-icons/hi2";
+import {
+  HiArrowLeft,
+  HiArrowTopRightOnSquare,
+  HiCheckCircle,
+} from "react-icons/hi2";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { FiCopy, FiCheck } from "react-icons/fi";
 import programs from "../data/programs.json";
@@ -200,24 +204,42 @@ export default function AppPage() {
   }, [app]);
 
   useEffect(() => {
-    if (!wikiTerm) { setTimeout(() => setLoading(false), 0); return; }
+    if (!wikiTerm) {
+      setTimeout(() => setLoading(false), 0);
+      return;
+    }
     async function fetchWiki() {
       try {
-        const resPt = await fetch(`https://pt.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTerm)}`);
+        const resPt = await fetch(
+          `https://pt.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTerm)}`,
+        );
         if (resPt.ok) {
           const data = await resPt.json();
           if (data.extract?.length > 50) {
-            setInfo({ extract: data.extract, pageUrl: data.content_urls?.desktop?.page, thumbnail: data.thumbnail?.source });
+            setInfo({
+              extract: data.extract,
+              pageUrl: data.content_urls?.desktop?.page,
+              thumbnail: data.thumbnail?.source,
+            });
             return;
           }
         }
-        const resEn = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTerm)}`);
+        const resEn = await fetch(
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTerm)}`,
+        );
         if (resEn.ok) {
           const data = await resEn.json();
-          setInfo({ extract: data.extract, pageUrl: data.content_urls?.desktop?.page, thumbnail: data.thumbnail?.source });
+          setInfo({
+            extract: data.extract,
+            pageUrl: data.content_urls?.desktop?.page,
+            thumbnail: data.thumbnail?.source,
+          });
         }
-      } catch { setInfo(null); }
-      finally { setLoading(false); }
+      } catch {
+        setInfo(null);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchWiki();
   }, [wikiTerm]);
@@ -232,22 +254,31 @@ export default function AppPage() {
     return (
       <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center gap-4">
         <p className="text-gray-400">Programa não encontrado.</p>
-        <Link to="/app" className="text-blue-400 hover:text-blue-300 text-sm">← Voltar</Link>
+        <Link to="/app" className="text-blue-400 hover:text-blue-300 text-sm">
+          ← Voltar
+        </Link>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-
       {/* Header */}
       <header className="bg-gray-800 border-b border-gray-700 px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center gap-3 text-sm">
-          <button onClick={() => navigate(-1)} className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors"
+          >
             <HiArrowLeft className="w-4 h-4" /> Voltar
           </button>
           <span className="text-gray-600">·</span>
-          <Link to="/app" className="text-blue-400 hover:text-blue-300 transition-colors">Winget Store</Link>
+          <Link
+            to="/app"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            Winget Store
+          </Link>
           <span className="text-gray-600">·</span>
           <span className="text-gray-400">{category}</span>
           <span className="text-gray-600">·</span>
@@ -256,12 +287,15 @@ export default function AppPage() {
       </header>
 
       <main className="max-w-4xl mx-auto px-6 py-10">
-
         {/* Hero */}
         <div className="flex items-start gap-6 mb-10">
           {iconUrl && !imgError ? (
-            <img src={iconUrl} alt={app.name} onError={() => setImgError(true)}
-              className="w-20 h-20 rounded-2xl object-contain bg-gray-800 p-3 border border-gray-700 shrink-0" />
+            <img
+              src={iconUrl}
+              alt={app.name}
+              onError={() => setImgError(true)}
+              className="w-20 h-20 rounded-2xl object-contain bg-gray-800 p-3 border border-gray-700 shrink-0"
+            />
           ) : (
             <div className="w-20 h-20 rounded-2xl bg-gray-800 border border-gray-700 flex items-center justify-center text-3xl font-bold text-gray-400 shrink-0">
               {app.name.charAt(0)}
@@ -271,74 +305,114 @@ export default function AppPage() {
             <h1 className="text-3xl font-bold text-white mb-1">{app.name}</h1>
             <p className="text-gray-400 mb-3">{app.description}</p>
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="bg-gray-800 border border-gray-700 text-blue-400 text-xs font-mono px-2.5 py-1 rounded-lg">{app.id}</span>
-              <span className="bg-gray-800 border border-gray-700 text-gray-400 text-xs px-2.5 py-1 rounded-lg">{category}</span>
+              <span className="bg-gray-800 border border-gray-700 text-blue-400 text-xs font-mono px-2.5 py-1 rounded-lg">
+                {app.id}
+              </span>
+              <span className="bg-gray-800 border border-gray-700 text-gray-400 text-xs px-2.5 py-1 rounded-lg">
+                {category}
+              </span>
             </div>
           </div>
           <button
             onClick={() => togglePrograma(app.id)}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm transition-all shrink-0 ${
-              selecionado ? "bg-green-600 hover:bg-red-500 text-white" : "bg-blue-600 hover:bg-blue-500 text-white"
+              selecionado
+                ? "bg-green-600 hover:bg-red-500 text-white"
+                : "bg-blue-600 hover:bg-blue-500 text-white"
             }`}
           >
-            {selecionado
-              ? <><HiCheckCircle className="w-4 h-4" /> Selecionado</>
-              : <><BsLightningChargeFill className="w-4 h-4" /> Adicionar à lista</>}
+            {selecionado ? (
+              <>
+                <HiCheckCircle className="w-4 h-4" /> Selecionado
+              </>
+            ) : (
+              <>
+                <BsLightningChargeFill className="w-4 h-4" /> Adicionar à lista
+              </>
+            )}
           </button>
         </div>
 
         {/* Comando */}
         <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-6">
-          <h2 className="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">Comando de instalação</h2>
+          <h2 className="text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">
+            Comando de instalação
+          </h2>
           <div className="flex items-center gap-3">
             <div className="flex-1 bg-gray-900 rounded-lg px-4 py-3 font-mono text-sm text-green-400 border border-gray-700 break-all">
               {comando}
             </div>
-            <button onClick={copiar}
+            <button
+              onClick={copiar}
               className={`flex items-center gap-1.5 px-4 py-3 rounded-lg text-sm font-medium transition-all shrink-0 ${
-                copiado ? "bg-green-600 text-white" : "bg-gray-700 hover:bg-gray-600 text-gray-300"
-              }`}>
-              {copiado ? <><FiCheck className="w-4 h-4" /> Copiado!</> : <><FiCopy className="w-4 h-4" /> Copiar</>}
+                copiado
+                  ? "bg-green-600 text-white"
+                  : "bg-gray-700 hover:bg-gray-600 text-gray-300"
+              }`}
+            >
+              {copiado ? (
+                <>
+                  <FiCheck className="w-4 h-4" /> Copiado!
+                </>
+              ) : (
+                <>
+                  <FiCopy className="w-4 h-4" /> Copiar
+                </>
+              )}
             </button>
           </div>
         </div>
 
         {/* Sobre */}
         <div className="bg-gray-800 border border-gray-700 rounded-xl p-5">
-          <h2 className="text-xs font-mono text-blue-400 uppercase tracking-widest mb-4">Sobre o programa</h2>
+          <h2 className="text-xs font-mono text-blue-400 uppercase tracking-widest mb-4">
+            Sobre o programa
+          </h2>
           {loading ? (
             <div className="flex items-center gap-3 py-8">
               <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-              <span className="text-gray-500 text-sm">Buscando informações...</span>
+              <span className="text-gray-500 text-sm">
+                Buscando informações...
+              </span>
             </div>
           ) : info ? (
             <div className="flex flex-col gap-4">
               {info.thumbnail && (
-                <img src={info.thumbnail} alt={app.name}
-                  className="w-full max-h-52 object-contain rounded-lg bg-gray-900 p-4 border border-gray-700" />
+                <img
+                  src={info.thumbnail}
+                  alt={app.name}
+                  className="w-full max-h-52 object-contain rounded-lg bg-gray-900 p-4 border border-gray-700"
+                />
               )}
               <p className="text-gray-300 text-sm leading-7">{info.extract}</p>
               {info.pageUrl && (
-                <a href={info.pageUrl} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-xs transition-colors w-fit">
+                <a
+                  href={info.pageUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-xs transition-colors w-fit"
+                >
                   <HiArrowTopRightOnSquare className="w-3.5 h-3.5" />
                   Ver artigo completo na Wikipedia
                 </a>
               )}
             </div>
           ) : (
-            <p className="text-gray-500 text-sm">Informações não disponíveis para este programa.</p>
+            <p className="text-gray-500 text-sm">
+              Informações não disponíveis para este programa.
+            </p>
           )}
         </div>
 
         {/* Voltar */}
         <div className="mt-8 flex justify-center">
-          <button onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+          >
             <HiArrowLeft className="w-4 h-4" /> Voltar para o Winget Store
           </button>
         </div>
-
       </main>
     </div>
   );

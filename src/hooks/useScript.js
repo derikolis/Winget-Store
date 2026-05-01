@@ -241,16 +241,17 @@ export function useScript() {
   const [script, setScript] = useState("");
 
   function gerarScript(selecionados, opcoes = {}) {
-    const {
-      aceitarAcordos = false,
-      verificarErros = false,
-    } = opcoes;
+    const { aceitarAcordos = false, verificarErros = false } = opcoes;
 
     const flags = [
       "-e",
       "--silent",
-      aceitarAcordos ? "--accept-source-agreements --accept-package-agreements" : "",
-    ].filter(Boolean).join(" ");
+      aceitarAcordos
+        ? "--accept-source-agreements --accept-package-agreements"
+        : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
 
     const total = selecionados.length;
 
@@ -286,11 +287,7 @@ export function useScript() {
       }),
     ];
 
-    const linhas = [
-      SCRIPT_HEADER,
-      ...linhasInstalacao,
-      SCRIPT_FOOTER,
-    ];
+    const linhas = [SCRIPT_HEADER, ...linhasInstalacao, SCRIPT_FOOTER];
 
     setScript(linhas.join("\n"));
     setModalAberto(true);

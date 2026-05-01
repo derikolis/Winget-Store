@@ -25,9 +25,10 @@ function ProgramCard({ app, selecionado, onToggle }) {
       className={`
         h-full cursor-pointer rounded-lg p-3 border transition-all duration-200 select-none
         focus:outline-none focus:ring-2 focus:ring-blue-500 relative group
-        ${selecionado
-          ? "bg-blue-600 border-blue-400 shadow-lg shadow-blue-900/50"
-          : "bg-gray-800 border-gray-700 hover:border-blue-500/50 hover:shadow-md hover:shadow-black/30"
+        ${
+          selecionado
+            ? "bg-blue-600 border-blue-400 shadow-lg shadow-blue-900/50"
+            : "bg-gray-800 border-gray-700 hover:border-blue-500/50 hover:shadow-md hover:shadow-black/30"
         }
       `}
     >
@@ -42,9 +43,13 @@ function ProgramCard({ app, selecionado, onToggle }) {
             className="w-6 h-6 rounded shrink-0 object-contain"
           />
         ) : (
-          <div className={`w-6 h-6 rounded shrink-0 flex items-center justify-center text-xs font-bold ${
-            selecionado ? "bg-white/20 text-white" : "bg-gray-700 text-gray-400"
-          }`}>
+          <div
+            className={`w-6 h-6 rounded shrink-0 flex items-center justify-center text-xs font-bold ${
+              selecionado
+                ? "bg-white/20 text-white"
+                : "bg-gray-700 text-gray-400"
+            }`}
+          >
             {app.name.charAt(0)}
           </div>
         )}
@@ -64,14 +69,18 @@ function ProgramCard({ app, selecionado, onToggle }) {
       </div>
 
       {/* Descrição */}
-      <p className={`text-xs leading-snug ${selecionado ? "text-blue-100" : "text-gray-400"}`}>
+      <p
+        className={`text-xs leading-snug ${selecionado ? "text-blue-100" : "text-gray-400"}`}
+      >
         {app.description}
       </p>
 
       {/* ID */}
-      <p className={`text-xs mt-1.5 font-mono truncate ${
-        selecionado ? "text-blue-200/70" : "text-blue-400/70"
-      }`}>
+      <p
+        className={`text-xs mt-1.5 font-mono truncate ${
+          selecionado ? "text-blue-200/70" : "text-blue-400/70"
+        }`}
+      >
         {app.id}
       </p>
 
@@ -82,9 +91,10 @@ function ProgramCard({ app, selecionado, onToggle }) {
         className={`
           absolute bottom-2 right-2 flex items-center gap-1 text-xs px-2 py-0.5 rounded-md
           transition-all duration-200 opacity-0 group-hover:opacity-100
-          ${selecionado
-            ? "bg-white/20 hover:bg-white/30 text-white"
-            : "bg-gray-700 hover:bg-gray-600 text-gray-300"
+          ${
+            selecionado
+              ? "bg-white/20 hover:bg-white/30 text-white"
+              : "bg-gray-700 hover:bg-gray-600 text-gray-300"
           }
         `}
         title={`Saiba mais sobre ${app.name}`}

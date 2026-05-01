@@ -1,122 +1,176 @@
-import { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
-  HiGlobeAlt, HiCommandLine, HiMusicalNote, HiWrenchScrewdriver,
-  HiChatBubbleLeftRight, HiShieldCheck, HiPuzzlePiece, HiDocument,
-  HiPaintBrush, HiCloud, HiArrowRight, HiChevronDown, HiChevronUp
-} from 'react-icons/hi2'
-import { FiGithub, FiStar } from 'react-icons/fi'
-import { FaWindows } from 'react-icons/fa'
-import { MdVerified, MdLoop, MdOpenInNew } from 'react-icons/md'
-import { BsTerminal, BsLightningChargeFill } from 'react-icons/bs'
-import Logo from '../components/Logo'
-import programs from '../data/programs.json'
+  HiGlobeAlt,
+  HiCommandLine,
+  HiMusicalNote,
+  HiWrenchScrewdriver,
+  HiChatBubbleLeftRight,
+  HiShieldCheck,
+  HiPuzzlePiece,
+  HiDocument,
+  HiPaintBrush,
+  HiCloud,
+  HiArrowRight,
+  HiChevronDown,
+  HiChevronUp,
+} from "react-icons/hi2";
+import { FiGithub, FiStar } from "react-icons/fi";
+import { FaWindows } from "react-icons/fa";
+import { MdVerified, MdLoop, MdOpenInNew } from "react-icons/md";
+import { BsTerminal, BsLightningChargeFill } from "react-icons/bs";
+import Logo from "../components/Logo";
+import programs from "../data/programs.json";
 
 // ✅ MELHORIA: contagem real de apps por categoria vinda do JSON
 const appCountMap = Object.fromEntries(
-  programs.map((cat) => [cat.category, cat.apps.length])
-)
+  programs.map((cat) => [cat.category, cat.apps.length]),
+);
 
 const categories = [
-  { icon: <HiGlobeAlt size={18} />,           label: 'Navegadores' },
-  { icon: <HiCommandLine size={18} />,         label: 'Desenvolvimento' },
-  { icon: <HiMusicalNote size={18} />,         label: 'Multimídia' },
-  { icon: <HiWrenchScrewdriver size={18} />,   label: 'Utilitários' },
-  { icon: <HiChatBubbleLeftRight size={18} />, label: 'Comunicação' },
-  { icon: <HiShieldCheck size={18} />,         label: 'Segurança' },
-  { icon: <HiPuzzlePiece size={18} />,         label: 'Jogos' },
-  { icon: <HiDocument size={18} />,            label: 'Escritório' },
-  { icon: <HiPaintBrush size={18} />,          label: 'Design' },
-  { icon: <HiCloud size={18} />,               label: 'Armazenamento' },
-].map((c) => ({ ...c, count: appCountMap[c.label] || 0 }))
+  { icon: <HiGlobeAlt size={18} />, label: "Navegadores" },
+  { icon: <HiCommandLine size={18} />, label: "Desenvolvimento" },
+  { icon: <HiMusicalNote size={18} />, label: "Multimídia" },
+  { icon: <HiWrenchScrewdriver size={18} />, label: "Utilitários" },
+  { icon: <HiChatBubbleLeftRight size={18} />, label: "Comunicação" },
+  { icon: <HiShieldCheck size={18} />, label: "Segurança" },
+  { icon: <HiPuzzlePiece size={18} />, label: "Jogos" },
+  { icon: <HiDocument size={18} />, label: "Escritório" },
+  { icon: <HiPaintBrush size={18} />, label: "Design" },
+  { icon: <HiCloud size={18} />, label: "Armazenamento" },
+].map((c) => ({ ...c, count: appCountMap[c.label] || 0 }));
 
-const totalApps = programs.reduce((acc, cat) => acc + cat.apps.length, 0)
+const totalApps = programs.reduce((acc, cat) => acc + cat.apps.length, 0);
 
 const steps = [
-  { num: '01', title: 'Acesse o site',  desc: 'Abra o Winget Store no navegador. Nada para instalar, zero configuração.' },
-  { num: '02', title: 'Selecione apps', desc: 'Navegue pelas categorias e marque os programas que deseja instalar.' },
-  { num: '03', title: 'Gere o script',  desc: 'Clique em "Gerar Script" e baixe o arquivo .ps1 personalizado.' },
-  { num: '04', title: 'Execute',        desc: 'Clique direito no arquivo → "Executar com PowerShell". Pronto.' },
-]
+  {
+    num: "01",
+    title: "Acesse o site",
+    desc: "Abra o Winget Store no navegador. Nada para instalar, zero configuração.",
+  },
+  {
+    num: "02",
+    title: "Selecione apps",
+    desc: "Navegue pelas categorias e marque os programas que deseja instalar.",
+  },
+  {
+    num: "03",
+    title: "Gere o script",
+    desc: 'Clique em "Gerar Script" e baixe o arquivo .ps1 personalizado.',
+  },
+  {
+    num: "04",
+    title: "Execute",
+    desc: 'Clique direito no arquivo → "Executar com PowerShell". Pronto.',
+  },
+];
 
 const features = [
-  { icon: <MdVerified size={18} />,           title: '100% oficial',          desc: 'Instalações direto dos servidores dos fabricantes. Sem cracks, sem adware, sem riscos.' },
-  { icon: <BsLightningChargeFill size={18} />, title: 'Rápido & automatizado', desc: 'Instale dezenas de programas de uma vez. Sem clicar em "próximo" infinitas vezes.' },
-  { icon: <MdLoop size={18} />,               title: 'Reproduzível',           desc: 'Guarde o script e use em qualquer PC. Ideal para formatar e reconfigurar rápido.' },
-  { icon: <FiGithub size={18} />,             title: 'Open source & gratuito', desc: 'Código aberto no GitHub. Sem cadastro, sem assinatura, sem truques.' },
-]
+  {
+    icon: <MdVerified size={18} />,
+    title: "100% oficial",
+    desc: "Instalações direto dos servidores dos fabricantes. Sem cracks, sem adware, sem riscos.",
+  },
+  {
+    icon: <BsLightningChargeFill size={18} />,
+    title: "Rápido & automatizado",
+    desc: 'Instale dezenas de programas de uma vez. Sem clicar em "próximo" infinitas vezes.',
+  },
+  {
+    icon: <MdLoop size={18} />,
+    title: "Reproduzível",
+    desc: "Guarde o script e use em qualquer PC. Ideal para formatar e reconfigurar rápido.",
+  },
+  {
+    icon: <FiGithub size={18} />,
+    title: "Open source & gratuito",
+    desc: "Código aberto no GitHub. Sem cadastro, sem assinatura, sem truques.",
+  },
+];
 
 const faqs = [
   {
-    q: 'Preciso instalar algum programa para usar o Winget Store?',
-    a: 'Não! O Winget Store roda direto no navegador. Você só precisa do winget instalado no Windows — ele já vem nativo no Windows 10 (atualização de maio de 2021) e Windows 11.',
+    q: "Preciso instalar algum programa para usar o Winget Store?",
+    a: "Não! O Winget Store roda direto no navegador. Você só precisa do winget instalado no Windows — ele já vem nativo no Windows 10 (atualização de maio de 2021) e Windows 11.",
   },
   {
-    q: 'É seguro? De onde vêm os programas?',
-    a: 'Totalmente seguro. Os programas são instalados diretamente dos servidores oficiais de cada fabricante através do winget, o gerenciador de pacotes oficial da Microsoft. O Winget Store apenas gera o script — não tem acesso ao seu computador.',
+    q: "É seguro? De onde vêm os programas?",
+    a: "Totalmente seguro. Os programas são instalados diretamente dos servidores oficiais de cada fabricante através do winget, o gerenciador de pacotes oficial da Microsoft. O Winget Store apenas gera o script — não tem acesso ao seu computador.",
   },
   {
-    q: 'Funciona em qual versão do Windows?',
-    a: 'Windows 10 (build 1809 ou superior com App Installer atualizado) e Windows 11. Não funciona no Windows 7 ou 8.',
+    q: "Funciona em qual versão do Windows?",
+    a: "Windows 10 (build 1809 ou superior com App Installer atualizado) e Windows 11. Não funciona no Windows 7 ou 8.",
   },
   {
-    q: 'Preciso ser administrador para executar o script?',
-    a: 'Recomendamos executar como administrador para garantir que todos os programas sejam instalados corretamente, especialmente os que precisam de permissões elevadas.',
+    q: "Preciso ser administrador para executar o script?",
+    a: "Recomendamos executar como administrador para garantir que todos os programas sejam instalados corretamente, especialmente os que precisam de permissões elevadas.",
   },
   {
-    q: 'Posso usar o script gerado em vários PCs?',
-    a: 'Sim! Esse é um dos grandes benefícios. Guarde o arquivo .ps1 e execute em qualquer PC com Windows. Ideal para formatar o computador e reinstalar tudo rapidamente.',
+    q: "Posso usar o script gerado em vários PCs?",
+    a: "Sim! Esse é um dos grandes benefícios. Guarde o arquivo .ps1 e execute em qualquer PC com Windows. Ideal para formatar o computador e reinstalar tudo rapidamente.",
   },
-]
+];
 
 function useReveal() {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect() } },
-      { threshold: 0.15 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
-  return [ref, visible]
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, visible];
 }
 
 function FAQ() {
-  const [aberto, setAberto] = useState(null)
+  const [aberto, setAberto] = useState(null);
   return (
     <div className="lp-faq-list">
       {faqs.map((f, i) => (
-        <div key={i} className={`lp-faq-item${aberto === i ? ' open' : ''}`}>
-          <button className="lp-faq-q" onClick={() => setAberto(aberto === i ? null : i)}>
+        <div key={i} className={`lp-faq-item${aberto === i ? " open" : ""}`}>
+          <button
+            className="lp-faq-q"
+            onClick={() => setAberto(aberto === i ? null : i)}
+          >
             <span>{f.q}</span>
-            {aberto === i ? <HiChevronUp size={18} /> : <HiChevronDown size={18} />}
+            {aberto === i ? (
+              <HiChevronUp size={18} />
+            ) : (
+              <HiChevronDown size={18} />
+            )}
           </button>
           {aberto === i && <div className="lp-faq-a">{f.a}</div>}
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
 export default function LandingPage() {
   useEffect(() => {
-    document.title = 'Winget Store — Instale programas no Windows'
-  }, [])
+    document.title = "Winget Store — Instale programas no Windows";
+  }, []);
 
-  const [refStats, visStats]   = useReveal()
-  const [refSteps, visSteps]   = useReveal()
-  const [refReqs,  visReqs]    = useReveal()
-  const [refCats,  visCats]    = useReveal()
-  const [refScript, visScript] = useReveal()
-  const [refFeats, visFeats]   = useReveal()
-  const [refFaq,   visFaq]     = useReveal()
-  const [refCta,   visCta]     = useReveal()
+  const [refStats, visStats] = useReveal();
+  const [refSteps, visSteps] = useReveal();
+  const [refReqs, visReqs] = useReveal();
+  const [refCats, visCats] = useReveal();
+  const [refScript, visScript] = useReveal();
+  const [refFeats, visFeats] = useReveal();
+  const [refFaq, visFaq] = useReveal();
+  const [refCta, visCta] = useReveal();
 
   return (
     <>
@@ -311,9 +365,15 @@ export default function LandingPage() {
             </div>
           </Link>
           <ul className="lp-nav-links">
-            <li><button onClick={() => scrollTo('como-usar')}>Como usar</button></li>
-            <li><button onClick={() => scrollTo('categorias')}>Categorias</button></li>
-            <li><button onClick={() => scrollTo('faq')}>FAQ</button></li>
+            <li>
+              <button onClick={() => scrollTo("como-usar")}>Como usar</button>
+            </li>
+            <li>
+              <button onClick={() => scrollTo("categorias")}>Categorias</button>
+            </li>
+            <li>
+              <button onClick={() => scrollTo("faq")}>FAQ</button>
+            </li>
           </ul>
           <Link to="/app" className="lp-nav-cta">
             Abrir app <HiArrowRight size={12} />
@@ -333,38 +393,80 @@ export default function LandingPage() {
               <span className="lp-logo-sub">Instale programas no Windows</span>
             </div>
           </div>
-          <h1>Instale programas no Windows<br /><em>como um profissional.</em></h1>
+          <h1>
+            Instale programas no Windows
+            <br />
+            <em>como um profissional.</em>
+          </h1>
           <p className="lp-hero-sub">
-            Selecione os apps, gere um script PowerShell personalizado e instale tudo com um clique — sem downloads suspeitos.
+            Selecione os apps, gere um script PowerShell personalizado e instale
+            tudo com um clique — sem downloads suspeitos.
           </p>
           <div className="lp-actions">
             <Link to="/app" className="lp-btn-primary">
               <BsTerminal size={15} /> Começar agora
             </Link>
-            <a href="https://github.com/derikolis/Winget-Store" target="_blank" rel="noreferrer" className="lp-btn-secondary">
+            <a
+              href="https://github.com/derikolis/Winget-Store"
+              target="_blank"
+              rel="noreferrer"
+              className="lp-btn-secondary"
+            >
               <FiGithub size={15} /> Ver no GitHub
             </a>
           </div>
           <div className="lp-terminal">
             <div className="lp-terminal-bar">
-              <div className="dot dot-r" /><div className="dot dot-y" /><div className="dot dot-g" />
-              <span className="lp-terminal-bar-title"><BsTerminal size={12} /> Windows PowerShell</span>
+              <div className="dot dot-r" />
+              <div className="dot dot-y" />
+              <div className="dot dot-g" />
+              <span className="lp-terminal-bar-title">
+                <BsTerminal size={12} /> Windows PowerShell
+              </span>
             </div>
             <div className="lp-terminal-body">
               <div className="t-comment"># Script gerado pelo Winget Store</div>
-              <div><span className="t-cmd">winget</span> install <span className="t-flag">--id</span> <span className="t-pkg">Google.Chrome</span> <span className="t-flag">-e --silent</span></div>
-              <div><span className="t-ok">✔</span> Google Chrome instalado com sucesso</div>
-              <div><span className="t-cmd">winget</span> install <span className="t-flag">--id</span> <span className="t-pkg">Microsoft.VisualStudioCode</span> <span className="t-flag">-e --silent</span></div>
-              <div><span className="t-ok">✔</span> Visual Studio Code instalado com sucesso</div>
-              <div><span className="t-cmd">winget</span> install <span className="t-flag">--id</span> <span className="t-pkg">Spotify.Spotify</span> <span className="t-flag">-e --silent</span></div>
-              <div><span className="t-ok">✔</span> Spotify instalado com sucesso</div>
-              <div>$ <span className="t-cursor" /></div>
+              <div>
+                <span className="t-cmd">winget</span> install{" "}
+                <span className="t-flag">--id</span>{" "}
+                <span className="t-pkg">Google.Chrome</span>{" "}
+                <span className="t-flag">-e --silent</span>
+              </div>
+              <div>
+                <span className="t-ok">✔</span> Google Chrome instalado com
+                sucesso
+              </div>
+              <div>
+                <span className="t-cmd">winget</span> install{" "}
+                <span className="t-flag">--id</span>{" "}
+                <span className="t-pkg">Microsoft.VisualStudioCode</span>{" "}
+                <span className="t-flag">-e --silent</span>
+              </div>
+              <div>
+                <span className="t-ok">✔</span> Visual Studio Code instalado com
+                sucesso
+              </div>
+              <div>
+                <span className="t-cmd">winget</span> install{" "}
+                <span className="t-flag">--id</span>{" "}
+                <span className="t-pkg">Spotify.Spotify</span>{" "}
+                <span className="t-flag">-e --silent</span>
+              </div>
+              <div>
+                <span className="t-ok">✔</span> Spotify instalado com sucesso
+              </div>
+              <div>
+                $ <span className="t-cursor" />
+              </div>
             </div>
           </div>
         </section>
 
         {/* STATS */}
-        <div ref={refStats} className={`lp-stats reveal-scale${visStats ? ' visible' : ''}`}>
+        <div
+          ref={refStats}
+          className={`lp-stats reveal-scale${visStats ? " visible" : ""}`}
+        >
           <div className="lp-stat">
             <span className="lp-stat-num">{totalApps}+</span>
             <span className="lp-stat-label">programas disponíveis</span>
@@ -382,32 +484,71 @@ export default function LandingPage() {
         {/* COMO USAR */}
         <section className="lp-section" id="como-usar">
           <div className="lp-section-label">// como usar</div>
-          <h2 className="lp-section-title">Quatro passos.<br /><em>Zero complicação.</em></h2>
-          <div ref={refSteps} className={`lp-steps reveal${visSteps ? ' visible' : ''}`}>
+          <h2 className="lp-section-title">
+            Quatro passos.
+            <br />
+            <em>Zero complicação.</em>
+          </h2>
+          <div
+            ref={refSteps}
+            className={`lp-steps reveal${visSteps ? " visible" : ""}`}
+          >
             {steps.map((s, i) => (
-              <div className={`lp-step reveal${visSteps ? ' visible' : ''} delay-${i+1}`} key={s.num}>
+              <div
+                className={`lp-step reveal${visSteps ? " visible" : ""} delay-${i + 1}`}
+                key={s.num}
+              >
                 <div className="lp-step-num">{s.num}</div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
               </div>
             ))}
           </div>
-          <div className="lp-section-label" style={{ marginTop: '3.5rem' }}>// requisitos</div>
-          <h3 className="lp-section-title" style={{ fontSize: '1.3rem', marginBottom: '.5rem' }}>O que você precisa</h3>
-          <div ref={refReqs} className={`lp-req-box reveal${visReqs ? ' visible' : ''}`}>
-            <div className="lp-req"><FaWindows size={16} /> Windows 10 (build 1809+) ou Windows 11</div>
-            <div className="lp-req"><HiCommandLine size={16} /> winget instalado (já vem nativo no Windows 11)</div>
-            <div className="lp-req"><HiShieldCheck size={16} /> Recomendado: executar como Administrador</div>
+          <div className="lp-section-label" style={{ marginTop: "3.5rem" }}>
+            // requisitos
+          </div>
+          <h3
+            className="lp-section-title"
+            style={{ fontSize: "1.3rem", marginBottom: ".5rem" }}
+          >
+            O que você precisa
+          </h3>
+          <div
+            ref={refReqs}
+            className={`lp-req-box reveal${visReqs ? " visible" : ""}`}
+          >
+            <div className="lp-req">
+              <FaWindows size={16} /> Windows 10 (build 1809+) ou Windows 11
+            </div>
+            <div className="lp-req">
+              <HiCommandLine size={16} /> winget instalado (já vem nativo no
+              Windows 11)
+            </div>
+            <div className="lp-req">
+              <HiShieldCheck size={16} /> Recomendado: executar como
+              Administrador
+            </div>
           </div>
         </section>
 
         {/* CATEGORIES */}
-        <section className="lp-section" id="categorias" style={{ paddingTop: 0 }}>
+        <section
+          className="lp-section"
+          id="categorias"
+          style={{ paddingTop: 0 }}
+        >
           <div className="lp-section-label">// categorias</div>
-          <h2 className="lp-section-title">Tudo que você<br /><em>precisa em um lugar.</em></h2>
-          <div ref={refCats} className={`lp-cats reveal${visCats ? ' visible' : ''}`}>
+          <h2 className="lp-section-title">
+            Tudo que você
+            <br />
+            <em>precisa em um lugar.</em>
+          </h2>
+          <div
+            ref={refCats}
+            className={`lp-cats reveal${visCats ? " visible" : ""}`}
+          >
             {/* ✅ MELHORIA: exibe contagem real de apps por categoria */}
-            {categories.map(c => (
+            {categories.map((c) => (
               <div className="lp-cat" key={c.label}>
                 <span className="lp-cat-icon">{c.icon}</span>
                 <span style={{ flex: 1 }}>{c.label}</span>
@@ -420,29 +561,86 @@ export default function LandingPage() {
         {/* SCRIPT + FEATURES */}
         <section className="lp-script-section" id="script">
           <div className="lp-script-inner">
-            <div ref={refScript} className={`lp-script-code reveal-left${visScript ? ' visible' : ''}`}>
+            <div
+              ref={refScript}
+              className={`lp-script-code reveal-left${visScript ? " visible" : ""}`}
+            >
               <div className="lp-terminal-bar">
-                <div className="dot dot-r" /><div className="dot dot-y" /><div className="dot dot-g" />
-                <span className="lp-terminal-bar-title"><BsTerminal size={11} /> instalar.ps1</span>
+                <div className="dot dot-r" />
+                <div className="dot dot-y" />
+                <div className="dot dot-g" />
+                <span className="lp-terminal-bar-title">
+                  <BsTerminal size={11} /> instalar.ps1
+                </span>
               </div>
               <pre>
                 <span className="comment2">{`# ================================================\n# Script gerado por winget-store.vercel.app\n# ================================================\n\n`}</span>
-                <span className="keyword">Write-Host</span>{` `}<span className="str">"Iniciando instalações..."{'\n\n'}</span>
-                <span className="func">winget</span>{` install `}<span className="flag">--id</span>{` `}<span className="str">Google.Chrome</span>{` `}<span className="flag">-e --silent{'\n'}</span>
-                <span className="func">winget</span>{` install `}<span className="flag">--id</span>{` `}<span className="str">Git.Git</span>{` `}<span className="flag">-e --silent{'\n'}</span>
-                <span className="func">winget</span>{` install `}<span className="flag">--id</span>{` `}<span className="str">Microsoft.VisualStudioCode</span>{` `}<span className="flag">-e --silent{'\n'}</span>
-                <span className="func">winget</span>{` install `}<span className="flag">--id</span>{` `}<span className="str">Discord.Discord</span>{` `}<span className="flag">-e --silent{'\n'}</span>
-                <span className="func">winget</span>{` install `}<span className="flag">--id</span>{` `}<span className="str">Spotify.Spotify</span>{` `}<span className="flag">-e --silent{'\n\n'}</span>
-                <span className="keyword">Write-Host</span>{` `}<span className="str">"✔ Concluído!"</span>
+                <span className="keyword">Write-Host</span>
+                {` `}
+                <span className="str">"Iniciando instalações..."{"\n\n"}</span>
+                <span className="func">winget</span>
+                {` install `}
+                <span className="flag">--id</span>
+                {` `}
+                <span className="str">Google.Chrome</span>
+                {` `}
+                <span className="flag">-e --silent{"\n"}</span>
+                <span className="func">winget</span>
+                {` install `}
+                <span className="flag">--id</span>
+                {` `}
+                <span className="str">Git.Git</span>
+                {` `}
+                <span className="flag">-e --silent{"\n"}</span>
+                <span className="func">winget</span>
+                {` install `}
+                <span className="flag">--id</span>
+                {` `}
+                <span className="str">Microsoft.VisualStudioCode</span>
+                {` `}
+                <span className="flag">-e --silent{"\n"}</span>
+                <span className="func">winget</span>
+                {` install `}
+                <span className="flag">--id</span>
+                {` `}
+                <span className="str">Discord.Discord</span>
+                {` `}
+                <span className="flag">-e --silent{"\n"}</span>
+                <span className="func">winget</span>
+                {` install `}
+                <span className="flag">--id</span>
+                {` `}
+                <span className="str">Spotify.Spotify</span>
+                {` `}
+                <span className="flag">-e --silent{"\n\n"}</span>
+                <span className="keyword">Write-Host</span>
+                {` `}
+                <span className="str">"✔ Concluído!"</span>
               </pre>
             </div>
-            <div ref={refFeats} className={`lp-features reveal-right${visFeats ? ' visible' : ''}`}>
+            <div
+              ref={refFeats}
+              className={`lp-features reveal-right${visFeats ? " visible" : ""}`}
+            >
               <div className="lp-section-label">// vantagens</div>
-              <h2 className="lp-section-title" style={{ marginBottom: '1.5rem' }}>Por que usar<br /><em>winget?</em></h2>
+              <h2
+                className="lp-section-title"
+                style={{ marginBottom: "1.5rem" }}
+              >
+                Por que usar
+                <br />
+                <em>winget?</em>
+              </h2>
               {features.map((f, i) => (
-                <div className={`lp-feature reveal${visFeats ? ' visible' : ''} delay-${i+1}`} key={f.title}>
+                <div
+                  className={`lp-feature reveal${visFeats ? " visible" : ""} delay-${i + 1}`}
+                  key={f.title}
+                >
                   <div className="lp-feature-icon">{f.icon}</div>
-                  <div className="lp-feature-text"><h4>{f.title}</h4><p>{f.desc}</p></div>
+                  <div className="lp-feature-text">
+                    <h4>{f.title}</h4>
+                    <p>{f.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -450,22 +648,45 @@ export default function LandingPage() {
         </section>
 
         {/* FAQ */}
-        <section ref={refFaq} className={`lp-section reveal${visFaq ? ' visible' : ''}`} id="faq">
+        <section
+          ref={refFaq}
+          className={`lp-section reveal${visFaq ? " visible" : ""}`}
+          id="faq"
+        >
           <div className="lp-section-label">// faq</div>
-          <h2 className="lp-section-title">Perguntas<br /><em>frequentes.</em></h2>
+          <h2 className="lp-section-title">
+            Perguntas
+            <br />
+            <em>frequentes.</em>
+          </h2>
           <FAQ />
         </section>
 
         {/* CTA */}
-        <section ref={refCta} className={`lp-cta reveal${visCta ? ' visible' : ''}`}>
+        <section
+          ref={refCta}
+          className={`lp-cta reveal${visCta ? " visible" : ""}`}
+        >
           <div className="lp-cta-glow" />
-          <h2>Pronto para instalar<br /><em style={{ color: 'var(--accent)' }}>como um dev?</em></h2>
-          <p>Acesse agora, selecione seus programas e gere seu script personalizado.</p>
-          <div className="lp-actions" style={{ justifyContent: 'center' }}>
+          <h2>
+            Pronto para instalar
+            <br />
+            <em style={{ color: "var(--accent)" }}>como um dev?</em>
+          </h2>
+          <p>
+            Acesse agora, selecione seus programas e gere seu script
+            personalizado.
+          </p>
+          <div className="lp-actions" style={{ justifyContent: "center" }}>
             <Link to="/app" className="lp-btn-primary">
               <MdOpenInNew size={16} /> Abrir o Winget Store
             </Link>
-            <a href="https://github.com/derikolis/Winget-Store" target="_blank" rel="noreferrer" className="lp-btn-secondary">
+            <a
+              href="https://github.com/derikolis/Winget-Store"
+              target="_blank"
+              rel="noreferrer"
+              className="lp-btn-secondary"
+            >
               <FiStar size={15} /> Star no GitHub
             </a>
           </div>
@@ -474,10 +695,25 @@ export default function LandingPage() {
         {/* FOOTER */}
         <footer className="lp-footer">
           <span>© 2026 Winget Store — MIT License</span>
-          <span>Desenvolvido por <a href="https://github.com/derikolis" target="_blank" rel="noreferrer">Derik Oliveira</a></span>
-          <a href="https://winget-store.vercel.app" target="_blank" rel="noreferrer">winget-store.vercel.app</a>
+          <span>
+            Desenvolvido por{" "}
+            <a
+              href="https://github.com/derikolis"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Derik Oliveira
+            </a>
+          </span>
+          <a
+            href="https://winget-store.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            winget-store.vercel.app
+          </a>
         </footer>
       </div>
     </>
-  )
+  );
 }

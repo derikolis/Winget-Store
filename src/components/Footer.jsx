@@ -42,8 +42,13 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
         >
           <div className="absolute -bottom-[6px] left-5 w-3 h-3 bg-gray-900 border-r border-b border-gray-600 rotate-45" />
           <div className="flex items-center justify-between mb-3">
-            <span className="text-white font-bold text-sm">Salvar como perfil</span>
-            <button onClick={() => setSalvarAberto(false)} className="text-gray-400 hover:text-white transition-colors">
+            <span className="text-white font-bold text-sm">
+              Salvar como perfil
+            </span>
+            <button
+              onClick={() => setSalvarAberto(false)}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <HiXMark className="w-4 h-4" />
             </button>
           </div>
@@ -72,16 +77,20 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
 
       <div
         className="fixed bottom-0 left-0 right-0 border-t border-gray-700 px-4 sm:px-8 py-4"
-        style={{ background: "rgba(17,24,39,.95)", backdropFilter: "blur(12px)" }}
+        style={{
+          background: "rgba(17,24,39,.95)",
+          backdropFilter: "blur(12px)",
+        }}
       >
         <div className="w-full flex items-center justify-between gap-4 relative">
-
           {/* Esquerda: status + ações */}
           <div className="flex items-center gap-3 min-w-0">
             <div className="flex items-center gap-3 min-w-0">
-              <div className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-300 ${
-                temSelecao ? "bg-blue-400 animate-pulse" : "bg-gray-600"
-              }`} />
+              <div
+                className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-300 ${
+                  temSelecao ? "bg-blue-400 animate-pulse" : "bg-gray-600"
+                }`}
+              />
               <div className="min-w-[180px]">
                 <span className="text-white font-bold text-sm">
                   {selecionados.length} programa(s) selecionado(s)
@@ -94,9 +103,13 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
               </div>
             </div>
 
-            <div className={`flex items-center gap-2 transition-all duration-300 ${
-              temSelecao ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 pointer-events-none"
-            }`}>
+            <div
+              className={`flex items-center gap-2 transition-all duration-300 ${
+                temSelecao
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-2 pointer-events-none"
+              }`}
+            >
               <button
                 onClick={onLimpar}
                 className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-red-400 transition-colors border border-gray-700 hover:border-red-400/50 px-2.5 py-1.5 rounded-lg"
@@ -111,8 +124,8 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
                   feedbackSalvo
                     ? "text-green-400 border-green-400/50 bg-green-400/10"
                     : salvarAberto
-                    ? "text-blue-400 border-blue-400/50 bg-blue-400/10"
-                    : "text-gray-400 hover:text-blue-400 border-gray-700 hover:border-blue-400/50"
+                      ? "text-blue-400 border-blue-400/50 bg-blue-400/10"
+                      : "text-gray-400 hover:text-blue-400 border-gray-700 hover:border-blue-400/50"
                 }`}
               >
                 <HiBookmark className="w-3.5 h-3.5" />
@@ -149,7 +162,6 @@ function Footer({ selecionados, onGerar, onLimpar, onSalvarPreset, opcoes }) {
             <BsLightningChargeFill className="w-4 h-4" />
             Gerar Script
           </button>
-
         </div>
       </div>
 

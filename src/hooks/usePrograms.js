@@ -35,7 +35,7 @@ export function usePrograms() {
 
   function togglePrograma(id) {
     setSelecionados((prev) =>
-      selecionadosSet.has(id) ? prev.filter((p) => p !== id) : [...prev, id]
+      selecionadosSet.has(id) ? prev.filter((p) => p !== id) : [...prev, id],
     );
   }
 
@@ -43,7 +43,9 @@ export function usePrograms() {
     const idsCategoria = categoria.apps.map((app) => app.id);
     const todosSelected = idsCategoria.every((id) => selecionadosSet.has(id));
     if (todosSelected) {
-      setSelecionados((prev) => prev.filter((id) => !idsCategoria.includes(id)));
+      setSelecionados((prev) =>
+        prev.filter((id) => !idsCategoria.includes(id)),
+      );
     } else {
       setSelecionados((prev) => [...new Set([...prev, ...idsCategoria])]);
     }

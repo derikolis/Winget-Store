@@ -12,18 +12,31 @@ import { useBusca } from "../hooks/useBusca";
 import { HiCheckCircle, HiXCircle, HiXMark } from "react-icons/hi2";
 
 function Home() {
-  useEffect(() => { document.title = "Winget Store"; }, []);
+  useEffect(() => {
+    document.title = "Winget Store";
+  }, []);
 
   const [categoriaAtiva, setCategoriaAtiva] = useState(programs[0].category);
   const [sidebarAberta, setSidebarAberta] = useState(false);
-  const [opcoes, setOpcoes] = useState({ aceitarAcordos: false, verificarErros: false });
+  const [opcoes, setOpcoes] = useState({
+    aceitarAcordos: false,
+    verificarErros: false,
+  });
 
   const {
-    selecionados, selecionadosSet, togglePrograma, toggleCategoria,
-    limparSelecao, presets, salvarPreset, carregarPreset, deletarPreset,
+    selecionados,
+    selecionadosSet,
+    togglePrograma,
+    toggleCategoria,
+    limparSelecao,
+    presets,
+    salvarPreset,
+    carregarPreset,
+    deletarPreset,
   } = usePrograms();
 
-  const { script, modalAberto, gerarScript, baixarScript, fecharModal } = useScript();
+  const { script, modalAberto, gerarScript, baixarScript, fecharModal } =
+    useScript();
   const { busca, setBusca, buscaDebounced } = useBusca();
 
   const categoriasFiltradas = useMemo(() => {
@@ -35,7 +48,7 @@ function Home() {
           (app) =>
             app.name.toLowerCase().includes(termo) ||
             app.description.toLowerCase().includes(termo) ||
-            app.id.toLowerCase().includes(termo)
+            app.id.toLowerCase().includes(termo),
         ),
       }))
       .filter((categoria) => categoria.apps.length > 0);
@@ -48,7 +61,9 @@ function Home() {
   const selecionadosPorCategoria = useMemo(() => {
     const mapa = {};
     programs.forEach((cat) => {
-      mapa[cat.category] = cat.apps.filter((app) => selecionadosSet.has(app.id)).length;
+      mapa[cat.category] = cat.apps.filter((app) =>
+        selecionadosSet.has(app.id),
+      ).length;
     });
     return mapa;
   }, [selecionadosSet]);
@@ -70,7 +85,6 @@ function Home() {
       />
 
       <div className="flex-1 overflow-hidden relative">
-
         {/* Overlay mobile — fecha sidebar ao clicar fora */}
         {sidebarAberta && (
           <div
@@ -80,17 +94,21 @@ function Home() {
         )}
 
         <div className="w-full mx-auto px-3 sm:px-4 lg:px-8 xl:px-16 h-full flex gap-4 lg:gap-8 pt-4 lg:pt-6 min-h-0 max-w-screen-xl">
-
           {/* Sidebar mobile — drawer */}
-          <div className={`
+          <div
+            className={`
             fixed top-0 left-0 h-full z-30 pt-[60px] pb-[60px] w-56
             bg-gray-900 transition-transform duration-300 ease-in-out overflow-y-auto
             lg:hidden
             ${sidebarAberta ? "translate-x-0 shadow-2xl" : "-translate-x-full"}
-          `}>
+          `}
+          >
             <div className="flex items-center justify-between px-4 py-3">
               <span className="text-white font-bold text-sm">Categorias</span>
-              <button onClick={() => setSidebarAberta(false)} className="text-gray-400 hover:text-white">
+              <button
+                onClick={() => setSidebarAberta(false)}
+                className="text-gray-400 hover:text-white"
+              >
                 <HiXMark className="w-5 h-5" />
               </button>
             </div>
@@ -107,7 +125,9 @@ function Home() {
           </div>
 
           {/* Sidebar desktop */}
-          <div className="hidden lg:block lg:w-48 xl:w-56 lg:shrink-0 overflow-y-auto self-start sticky top-0">            <Sidebar
+          <div className="hidden lg:block lg:w-48 xl:w-56 lg:shrink-0 overflow-y-auto self-start sticky top-0">
+            {" "}
+            <Sidebar
               categorias={programs}
               categoriaAtiva={categoriaAtiva}
               onSelecionar={handleSelecionarCategoria}
@@ -123,19 +143,30 @@ function Home() {
           <main className="flex-1 overflow-y-auto pr-1 pl-1 min-w-0 pb-20">
             {categoriaVisivel.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-gray-500">
-                <p className="text-lg font-medium">Nenhum programa encontrado</p>
-                <p className="text-sm mt-1">Tente buscar pelo nome, descrição ou ID</p>
+                <p className="text-lg font-medium">
+                  Nenhum programa encontrado
+                </p>
+                <p className="text-sm mt-1">
+                  Tente buscar pelo nome, descrição ou ID
+                </p>
               </div>
             ) : (
               categoriaVisivel.map((categoria) => {
                 const Icon = categoryIcons[categoria.category];
-                const todosSelected = categoria.apps.every((app) => selecionadosSet.has(app.id));
+                const todosSelected = categoria.apps.every((app) =>
+                  selecionadosSet.has(app.id),
+                );
 
                 return (
                   <div key={categoria.category} className="mb-6">
                     <div className="flex items-center justify-between mb-3 gap-2">
                       <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2 min-w-0">
-                        {Icon && <Icon className="w-5 h-5 shrink-0" aria-hidden="true" />}
+                        {Icon && (
+                          <Icon
+                            className="w-5 h-5 shrink-0"
+                            aria-hidden="true"
+                          />
+                        )}
                         <span className="truncate">{categoria.category}</span>
                         <span className="text-sm font-normal text-gray-500 shrink-0">
                           ({categoria.apps.length})
@@ -150,9 +181,19 @@ function Home() {
                         }`}
                       >
                         {todosSelected ? (
-                          <><HiXCircle className="w-4 h-4" /><span className="hidden sm:inline">Desmarcar todos</span></>
+                          <>
+                            <HiXCircle className="w-4 h-4" />
+                            <span className="hidden sm:inline">
+                              Desmarcar todos
+                            </span>
+                          </>
                         ) : (
-                          <><HiCheckCircle className="w-4 h-4" /><span className="hidden sm:inline">Selecionar todos</span></>
+                          <>
+                            <HiCheckCircle className="w-4 h-4" />
+                            <span className="hidden sm:inline">
+                              Selecionar todos
+                            </span>
+                          </>
                         )}
                       </button>
                     </div>
@@ -177,7 +218,6 @@ function Home() {
               })
             )}
           </main>
-
         </div>
       </div>
 

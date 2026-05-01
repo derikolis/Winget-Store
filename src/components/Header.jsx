@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiMagnifyingGlass, HiArrowLeft, HiCog6Tooth, HiBars3 } from "react-icons/hi2";
+import {
+  HiMagnifyingGlass,
+  HiArrowLeft,
+  HiCog6Tooth,
+  HiBars3,
+} from "react-icons/hi2";
 import Logo from "./Logo";
 
-function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleSidebar }) {
+function Header({
+  busca,
+  onBusca,
+  totalSelecionados,
+  opcoes,
+  onOpcoes,
+  onToggleSidebar,
+}) {
   const [configAberta, setConfigAberta] = useState(false);
 
   return (
     <>
       {/* Painel de configurações — abre abaixo do header ancorado na engrenagem */}
       {configAberta && (
-        <div className="fixed top-[72px] right-8 z-40 bg-gray-900 border border-gray-600 rounded-xl p-3 w-56 shadow-2xl shadow-black/60"
+        <div
+          className="fixed top-[72px] right-8 z-40 bg-gray-900 border border-gray-600 rounded-xl p-3 w-56 shadow-2xl shadow-black/60"
           style={{ animation: "fadeDown 0.18s ease-out" }}
         >
           {/* Setinha apontando para cima em direção à engrenagem */}
@@ -25,14 +38,18 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
               <input
                 type="checkbox"
                 checked={opcoes.aceitarAcordos}
-                onChange={(e) => onOpcoes({ ...opcoes, aceitarAcordos: e.target.checked })}
+                onChange={(e) =>
+                  onOpcoes({ ...opcoes, aceitarAcordos: e.target.checked })
+                }
                 className="accent-blue-500 w-3.5 h-3.5 cursor-pointer shrink-0"
               />
               <div>
                 <p className="text-white text-xs font-medium group-hover:text-blue-300 transition-colors leading-tight">
                   Aceitar acordos
                 </p>
-                <p className="text-gray-500 text-[10px] font-mono">--accept-source-agreements</p>
+                <p className="text-gray-500 text-[10px] font-mono">
+                  --accept-source-agreements
+                </p>
               </div>
             </label>
 
@@ -40,14 +57,18 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
               <input
                 type="checkbox"
                 checked={opcoes.verificarErros}
-                onChange={(e) => onOpcoes({ ...opcoes, verificarErros: e.target.checked })}
+                onChange={(e) =>
+                  onOpcoes({ ...opcoes, verificarErros: e.target.checked })
+                }
                 className="accent-blue-500 w-3.5 h-3.5 cursor-pointer shrink-0"
               />
               <div>
                 <p className="text-white text-xs font-medium group-hover:text-blue-300 transition-colors leading-tight">
                   Verificar erros
                 </p>
-                <p className="text-gray-500 text-[10px]">Aviso se falhar por pacote</p>
+                <p className="text-gray-500 text-[10px]">
+                  Aviso se falhar por pacote
+                </p>
               </div>
             </label>
           </div>
@@ -56,7 +77,6 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
 
       <header className="bg-gray-800 border-b border-gray-700 py-3 px-3 sm:px-4 lg:px-6 relative z-30 shrink-0">
         <div className="w-full flex items-center justify-between gap-3">
-
           {/* Logo + botão menu mobile */}
           <div className="flex items-center gap-3">
             {/* Botão hamburger — só aparece em telas pequenas */}
@@ -71,8 +91,12 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <Logo />
               <div className="hidden sm:block">
-                <h1 className="text-lg sm:text-xl font-bold text-white leading-tight">Winget Store</h1>
-                <p className="text-gray-400 text-xs">Instale programas no Windows</p>
+                <h1 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                  Winget Store
+                </h1>
+                <p className="text-gray-400 text-xs">
+                  Instale programas no Windows
+                </p>
               </div>
             </Link>
           </div>
@@ -86,25 +110,37 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
               <HiArrowLeft className="w-3.5 h-3.5" />
               Landing Page
             </Link>
-            <Link to="/como-usar" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link
+              to="/como-usar"
+              className="text-gray-400 hover:text-white text-sm transition-colors"
+            >
               Como usar
             </Link>
-            <Link to="/sobre" className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block">
+            <Link
+              to="/sobre"
+              className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block"
+            >
               Sobre
             </Link>
-            <Link to="/privacidade" className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block">
+            <Link
+              to="/privacidade"
+              className="text-gray-400 hover:text-white text-sm transition-colors hidden lg:block"
+            >
               Privacidade
             </Link>
           </nav>
 
           {/* Direita: badge + busca + engrenagem */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-
             {/* Badge selecionados */}
             <div className="flex w-[140px] justify-end">
-              <span className={`bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full transition-all duration-300 whitespace-nowrap ${
-                totalSelecionados > 0 ? "opacity-100 scale-100" : "opacity-0 scale-90 pointer-events-none"
-              }`}>
+              <span
+                className={`bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full transition-all duration-300 whitespace-nowrap ${
+                  totalSelecionados > 0
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-90 pointer-events-none"
+                }`}
+              >
                 {totalSelecionados} selecionado(s)
               </span>
             </div>
@@ -143,7 +179,6 @@ function Header({ busca, onBusca, totalSelecionados, opcoes, onOpcoes, onToggleS
                 </div>
               )}
             </div>
-
           </div>
         </div>
       </header>

@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 function NotFound() {
-  document.title = "404 | Winget Store";
+  useEffect(() => { document.title = "404 | Winget Store"; }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
